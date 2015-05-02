@@ -17,20 +17,18 @@ namespace Classify
         public ViewController()
         {
             InitializeComponent();
+            String select = "SELECT * FROM Modules";
+            SQLiteCommand command = new SQLiteCommand(select, DBSchema.connection());
+            SQLiteDataReader reader = command.ExecuteReader();
+            if (reader.Read()) label1.Text = reader["name"] as String;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            this.year1TabPage.BackColor = Color.Azure;
-            String dbName = "ClassifyDB";
-            String dbPath = dbName + ".sqlite";
-            if (!File.Exists(dbPath))
-            {
-                SQLiteConnection.CreateFile(dbPath);
-            }
-            SQLiteConnection m_dbConnection = new SQLiteConnection("Data Source=" + dbName + ".sqlite;Version=3;");
-            m_dbConnection.Open();
-
+            AddEditModuleView addEdit = new AddEditModuleView();
+            addEdit.Size = new Size(200, 200);
+            addEdit.Location = new Point(100, 100);
+            year1TabPage.Controls.Add(addEdit);
         }
     }
 }

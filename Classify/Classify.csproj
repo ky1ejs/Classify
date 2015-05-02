@@ -50,6 +50,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBSchema.cs" />
+    <Compile Include="AddEditModuleView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AddEditModuleView.Designer.cs">
+      <DependentUpon>AddEditModuleView.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewController.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,6 +65,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddEditModuleView.resx">
+      <DependentUpon>AddEditModuleView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViewController.resx">
       <DependentUpon>ViewController.cs</DependentUpon>
     </EmbeddedResource>

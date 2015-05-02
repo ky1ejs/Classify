@@ -16,6 +16,7 @@ namespace Classify
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            DBSchema.initialiseConnection();
             Application.Run(new ViewController());
         }
     }
