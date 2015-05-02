@@ -33,4 +33,39 @@ namespace Classify
             }
         }
     }
+
+    class Module
+    {
+        static const String tableName = "Modules";
+        static const String idColumn = "module_id";
+        static const String nameColumn = "name";
+        static const String codeColumn = "code";
+        static const String yearColumn = "year";
+        Int16 id
+        {
+            get { return id; }
+            set { }
+        }
+        String name
+        {
+            get { return name; }
+            set
+            {
+                if (!value.Equals(name) && id > 0)
+                {
+                    String stm = "UPDATE " + tableName + " SET " + nameColumn + " = '" + value + "' WHERE " + idColumn + " = " id;
+                    SQLiteCommandBuilder builder = new SQLiteCommandBuilder()
+                }
+            }   
+        }
+        String code;
+        Int16 year;
+
+        public Module(SQLiteDataReader results) {
+            this.id = results.GetInt16(0);
+            this.name = results["name"] as String;
+            this.code = results["code"] as String;
+            this.year = results.GetInt16(3);
+        }
+    }
 }
