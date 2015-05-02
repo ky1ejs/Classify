@@ -22,12 +22,13 @@ namespace Classify
         private void Form1_Load(object sender, EventArgs e)
         {
             this.year1TabPage.BackColor = Color.Azure;
-            String dbPath = "ClassifyDB.sqlite";
+            String dbName = "ClassifyDB";
+            String dbPath = dbName + ".sqlite";
             if (!File.Exists(dbPath))
             {
-                SQLiteConnection.CreateFile("ClassifyDB.sqlite");
+                SQLiteConnection.CreateFile(dbPath);
             }
-            SQLiteConnection m_dbConnection = new SQLiteConnection("Data Source=MyDatabase.sqlite;Version=3;");
+            SQLiteConnection m_dbConnection = new SQLiteConnection("Data Source=" + dbName + ".sqlite;Version=3;");
             m_dbConnection.Open();
 
         }
