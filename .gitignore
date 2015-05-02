@@ -154,3 +154,11 @@ $RECYCLE.BIN/
 
 # Mac desktop service store files
 .DS_Store
+
+# =========================
+# System.Data.SQLite
+# =========================
+
+System.Data.SQLite/
+!System.Data.SQLite/bin/
+
