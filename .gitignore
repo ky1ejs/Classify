@@ -159,6 +159,5 @@ $RECYCLE.BIN/
 # System.Data.SQLite
 # =========================
 
-System.Data.SQLite/
-!System.Data.SQLite/bin/*
-
+System.Data.SQLite/*
+!System.Data.SQLite/bin/
