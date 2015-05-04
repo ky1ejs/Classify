@@ -15,32 +15,61 @@ namespace Classify
     public partial class ViewController : Form, AddEditModuleViewDelegate
     {
         AddEditModuleView addEditModView;
-        ModuleTableView moduleTable;
+        ModuleTableView year1Table;
+        ModuleTableView year2Table;
+        ModuleTableView year3Table;
         public ViewController()
         {
             InitializeComponent();
 
-            moduleTable = new ModuleTableView(1);
-            moduleTable.Location = new Point(0, 20);
-            moduleTable.Size = new Size(year1TabPage.Size.Width, year1TabPage.Size.Height - 20);
-            moduleTable.BackColor = Color.Yellow;
-            year1TabPage.Controls.Add(moduleTable);
-
             addEditModView = new AddEditModuleView(this);
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            addEditModView.Size = new Size(year1TabPage.Size.Width, year1TabPage.Size.Height);
             addEditModView.Location = new Point(0, 0);
-            year1TabPage.Controls.Add(addEditModView);
-            addEditModView.BringToFront();
+            addEditModView.Size = new Size(this.Size.Width, this.Size.Height);
+
+            year1Table = new ModuleTableView(1);
+            year1Table.Location = new Point(0, 0);
+            year1Table.Size = new Size(year1TabPage.Size.Width, year1TabPage.Size.Height);
+            year1TabPage.Controls.Add(year1Table);
+
+            year2Table = new ModuleTableView(2);
+            year2Table.Location = new Point(0, 0);
+            year2Table.Size = new Size(year2TabPage.Size.Width, year2TabPage.Size.Height);
+            year2TabPage.Controls.Add(year2Table);
+
+            year3Table = new ModuleTableView(3);
+            year3Table.Location = new Point(0, 0);
+            year3Table.Size = new Size(year2TabPage.Size.Width, year2TabPage.Size.Height);
+            year3TabPage.Controls.Add(year3Table);
         }
 
         public void newModuleCreated(Module module)
         {
             year1TabPage.Controls.Remove(addEditModView);
-            moduleTable.reloadData();
+            switch (module.year)
+            {
+                case 1:
+                    year1Table.reloadData();
+                    break;
+
+                case 2:
+                    year2Table.reloadData();
+                    break;
+
+                case 3:
+                    year3Table.reloadData();
+                    break;
+                    
+                default:
+                    break;
+            }
+            year1Table.reloadData();
+            this.Controls.Remove(addEditModView);
+        }
+
+        private void addModuleButton_Click(object sender, EventArgs e)
+        {
+            this.Controls.Add(addEditModView);
+            addEditModView.BringToFront();
         }
     }
 }
