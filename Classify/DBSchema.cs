@@ -164,6 +164,37 @@ namespace Classify
             reader.Read();
             return new Module(reader.GetInt16(0), name, code, year, credits);
         }
+
+        public Int16 averageScore()
+        {
+            String stm = "SELECT result FROM Assessments WHERE module_id = @module";
+            SQLiteCommand cm = new SQLiteCommand(stm, DBSchema.connection());
+            cm.Parameters.Add(new SQLiteParameter("@module", id));
+            SQLiteDataReader dr = cm.ExecuteReader();
+            Int16 i = 0;
+            Int16 total = 0;
+            while (dr.Read())
+            {
+                Int16 result = dr.GetInt16(0);
+                total += result;
+                i++;
+            }
+            return Convert.ToInt16((i > 0) ? total / i : 0);
+        }
+
+        public static List<Module> modulesForYear(Int16 year)
+        {
+            List<Module> results = new List<Module>();
+            String stm = "SELECT * FROM Modules WHERE year = @yr";
+            SQLiteCommand cm = new SQLiteCommand(stm, DBSchema.connection());
+            cm.Parameters.Add(new SQLiteParameter("@yr", year));
+            SQLiteDataReader dr = cm.ExecuteReader();
+            while (dr.Read())
+            {
+                results.Add(new Module(dr));
+            }
+            return results;
+        }
     }
 
     public class Assessment

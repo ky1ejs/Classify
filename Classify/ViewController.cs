@@ -62,6 +62,93 @@ namespace Classify
             year3Table.Location = new Point(0, 0);
             year3Table.Size = new Size(year2TabPage.Size.Width, year2TabPage.Size.Height);
             year3TabPage.Controls.Add(year3Table);
+
+            calcStats();
+        }
+
+        private void calcStats()
+        {
+            List<Module> yr1 = modulesForYear(1);
+            List<Module> yr2 = modulesForYear(2);
+            List<Module> yr3 = modulesForYear(3);
+
+            yr1ModCountLabel.Text = yr1.Count.ToString();
+            yr1AvgScore.Text = averageScore(yr1).ToString();
+            Module mod1 = bestModule(yr1);
+            if (mod1 != null)
+            {
+                yr1BestMod.Text = mod1.name;
+                yr1BestModScore.Text = mod1.averageScore().ToString();
+            }
+            else
+            {
+                yr1BestMod.Text = "No scores entered";
+                yr1BestModScore.Text = "No scores entered";
+            }
+
+            yr2ModCountLabel.Text = yr2.Count.ToString();
+            yr2AvgScore.Text = averageScore(yr2).ToString();
+            Module mod2 = bestModule(yr2);
+            if (mod2 != null)
+            {
+                yr2BestMod.Text = mod2.name;
+                yr2BestModScore.Text = mod2.averageScore().ToString();
+            }
+            else
+            {
+                yr2BestMod.Text = "No scores entered";
+                yr2BestModScore.Text = "No scores entered";
+            }
+
+            yr3ModCountLabel.Text = yr3.Count.ToString();
+            yr3AvgScore.Text = averageScore(yr3).ToString();
+            Module mod3 = bestModule(yr3);
+            if (mod3 != null)
+            {
+                yr3BestMod.Text = mod3.name;
+                yr3BestModScore.Text = mod3.averageScore().ToString();
+            }
+            else
+            {
+                yr3BestMod.Text = "No scores entered";
+                yr3BestModScore.Text = "No scores entered";
+            }
+
+        }
+
+        private List<Module> modulesForYear(Int16 year)
+        {
+            List<Module> results = new List<Module>();
+            String stm = "SELECT * FROM Modules WHERE year = @yr";
+            SQLiteCommand cm = new SQLiteCommand(stm, DBSchema.connection());
+            cm.Parameters.Add(new SQLiteParameter("@yr", year));
+            SQLiteDataReader dr = cm.ExecuteReader();
+            while (dr.Read())
+            {
+                results.Add(new Module(dr));
+            }
+            return results;
+        }
+
+        private Int16 averageScore(List<Module> year)
+        {
+            Int16 i = 0;
+            Int16 total = 0;
+            foreach (Module mod in year)
+            {
+                total += mod.averageScore();
+                i++;
+            }
+            return Convert.ToInt16((i > 0) ? total / i : 0);
+        }
+
+        private Module bestModule(List<Module> year) {
+            Module best = null;
+            foreach (Module mod in year) 
+            {
+                if (best == null || mod.averageScore() > best.averageScore()) best = mod;
+            }
+            return best;
         }
 
         public void newModuleCreated(Module module)
