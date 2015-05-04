@@ -11,7 +11,7 @@ using System.Data.SQLite;
 
 namespace Classify
 {
-    public partial class ModuleDetailView : UserControl
+    public partial class ModuleDetailView : UserControl, AddEditAssessmentDelegate
     {
         private Module module;
 
@@ -29,6 +29,11 @@ namespace Classify
             assessmentTable.RowHeadersVisible = false;
             assessmentTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             assessmentTable.MultiSelect = false;
+            initialiseTableData();
+        }
+
+        private void initialiseTableData()
+        {
             String stm = "SELECT title, weight, type, result FROM Assessments WHERE module_id = @module_id";
             SQLiteDataAdapter adapt = new SQLiteDataAdapter(stm, DBSchema.connection());
             adapt.SelectCommand.Parameters.Add(new SQLiteParameter("@module_id", module.id));
@@ -40,6 +45,21 @@ namespace Classify
         private void backButton_Click(object sender, EventArgs e)
         {
             this.Parent.Controls.Remove(this);
+        }
+
+        private void addAssessmentButton_Click(object sender, EventArgs e)
+        {
+            AddEditAssessment addEdit = new AddEditAssessment(this, module);
+            addEdit.Location = new Point(0, 0);
+            addEdit.Size = this.Size;
+            addEdit.Dock = DockStyle.Fill;
+            this.Controls.Add(addEdit);
+            addEdit.BringToFront();
+        }
+
+        public void newAssessmentCreated(Assessment assessment)
+        {
+            initialiseTableData();
         }
     }
 }

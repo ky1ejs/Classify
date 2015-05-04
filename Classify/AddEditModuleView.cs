@@ -40,6 +40,7 @@ namespace Classify
                 del.TryGetTarget(out delObject);
                 if (delObject != null) delObject.newModuleCreated(newModule);
             }
+            this.Parent.Controls.Remove(this);
         }
         private void yearButtonSelected(Button selectedButton) 
         {
@@ -65,12 +66,7 @@ namespace Classify
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            if (del != null)
-            {
-                AddEditModuleViewDelegate delObject;
-                del.TryGetTarget(out delObject);
-                if (delObject != null) delObject.cancelButtonPressed();
-            }
+            this.Parent.Controls.Remove(this);          
         }
 
     }
@@ -78,6 +74,5 @@ namespace Classify
     public interface AddEditModuleViewDelegate
     {
         void newModuleCreated(Module module);
-        void cancelButtonPressed();
     }
 }

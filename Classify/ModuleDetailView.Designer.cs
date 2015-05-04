@@ -89,7 +89,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(40, 125);
+            this.label4.Location = new System.Drawing.Point(34, 125);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 13);
             this.label4.TabIndex = 4;
@@ -134,6 +134,7 @@
             this.addAssessmentButton.TabIndex = 8;
             this.addAssessmentButton.Text = "Add Assessment";
             this.addAssessmentButton.UseVisualStyleBackColor = true;
+            this.addAssessmentButton.Click += new System.EventHandler(this.addAssessmentButton_Click);
             // 
             // backButton
             // 

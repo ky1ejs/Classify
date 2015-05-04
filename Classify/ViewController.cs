@@ -85,17 +85,6 @@ namespace Classify
                     break;
             }
             year1Table.reloadData();
-            resetAddEditAndRemove();
-        }
-
-        public void cancelButtonPressed()
-        {
-            resetAddEditAndRemove();
-        }
-
-        public void resetAddEditAndRemove()
-        {
-            this.Controls.Remove(addEditModView);
         }
 
         private void addModuleButton_Click(object sender, EventArgs e)

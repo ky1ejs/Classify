@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddEditAssessment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AddEditAssessment.Designer.cs">
+      <DependentUpon>AddEditAssessment.cs</DependentUpon>
+    </Compile>
     <Compile Include="DBSchema.cs" />
     <Compile Include="AddEditModuleView.cs">
       <SubType>UserControl</SubType>
@@ -74,6 +80,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddEditAssessment.resx">
+      <DependentUpon>AddEditAssessment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddEditModuleView.resx">
       <DependentUpon>AddEditModuleView.cs</DependentUpon>
     </EmbeddedResource>
