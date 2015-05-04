@@ -13,9 +13,11 @@ namespace Classify
 {
     public partial class AddEditModuleView : UserControl
     {
-        public AddEditModuleView()
+        private WeakReference<AddEditModuleViewDelegate> del;
+        public AddEditModuleView(AddEditModuleViewDelegate aDelegate)
         {
             InitializeComponent();
+            this.del = new WeakReference<AddEditModuleViewDelegate>(aDelegate);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -24,9 +26,20 @@ namespace Classify
             String code = codeTF.Text;
             int year;
             int.TryParse(yearTF.Text, out year);
-            String insert = "INSERT INTO Modules (name, code, credits) VALUES('" + name + "', '" + code + "', " + yearTF.Text + ")";
-            SQLiteCommand command = new SQLiteCommand(insert, DBSchema.connection());
-            command.ExecuteNonQuery();
+            int credits;
+            int.TryParse(creditsTF.Text, out credits);
+            Module newModule = Module.create(name, code, Convert.ToInt16(year), Convert.ToInt16(credits));
+            if (del != null) 
+            {
+                AddEditModuleViewDelegate delObject;
+                del.TryGetTarget(out delObject);
+                if (delObject != null) delObject.newModuleCreated(newModule);
+            }
         }
+    }
+
+    public interface AddEditModuleViewDelegate
+    {
+        void newModuleCreated(Module module);
     }
 }

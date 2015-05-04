@@ -57,6 +57,9 @@
     <Compile Include="AddEditModuleView.Designer.cs">
       <DependentUpon>AddEditModuleView.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModuleTable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="ViewController.cs">
       <SubType>Form</SubType>
     </Compile>

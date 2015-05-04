@@ -30,9 +30,9 @@
         {
             this.tabControl = new System.Windows.Forms.TabControl();
             this.homeTabPage = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
             this.year1TabPage = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.homeTabPage.SuspendLayout();
             this.year1TabPage.SuspendLayout();
@@ -59,6 +59,15 @@
             this.homeTabPage.Text = "Home";
             this.homeTabPage.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(90, 74);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "label1";
+            // 
             // year1TabPage
             // 
             this.year1TabPage.Controls.Add(this.button1);
@@ -72,22 +81,13 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(157, 233);
+            this.button1.Location = new System.Drawing.Point(369, 0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(90, 74);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
             // 
             // ViewController
             // 
@@ -96,7 +96,7 @@
             this.ClientSize = new System.Drawing.Size(453, 362);
             this.Controls.Add(this.tabControl);
             this.Name = "ViewController";
-            this.Text = "Calssify";
+            this.Text = "Classify";
             this.tabControl.ResumeLayout(false);
             this.homeTabPage.ResumeLayout(false);
             this.homeTabPage.PerformLayout();

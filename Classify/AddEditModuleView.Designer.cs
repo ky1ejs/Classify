@@ -32,32 +32,33 @@
             this.codeTF = new System.Windows.Forms.TextBox();
             this.yearTF = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.creditsTF = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // nameTF
             // 
-            this.nameTF.Location = new System.Drawing.Point(54, 39);
+            this.nameTF.Location = new System.Drawing.Point(65, 36);
             this.nameTF.Name = "nameTF";
             this.nameTF.Size = new System.Drawing.Size(100, 20);
             this.nameTF.TabIndex = 0;
             // 
             // codeTF
             // 
-            this.codeTF.Location = new System.Drawing.Point(54, 84);
+            this.codeTF.Location = new System.Drawing.Point(65, 78);
             this.codeTF.Name = "codeTF";
             this.codeTF.Size = new System.Drawing.Size(100, 20);
             this.codeTF.TabIndex = 1;
             // 
             // yearTF
             // 
-            this.yearTF.Location = new System.Drawing.Point(54, 125);
+            this.yearTF.Location = new System.Drawing.Point(65, 122);
             this.yearTF.Name = "yearTF";
             this.yearTF.Size = new System.Drawing.Size(100, 20);
             this.yearTF.TabIndex = 2;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(64, 169);
+            this.button1.Location = new System.Drawing.Point(79, 212);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 3;
@@ -65,17 +66,25 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // creditsTF
+            // 
+            this.creditsTF.Location = new System.Drawing.Point(65, 165);
+            this.creditsTF.Name = "creditsTF";
+            this.creditsTF.Size = new System.Drawing.Size(100, 20);
+            this.creditsTF.TabIndex = 4;
+            // 
             // AddEditModuleView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Controls.Add(this.creditsTF);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.yearTF);
             this.Controls.Add(this.codeTF);
             this.Controls.Add(this.nameTF);
             this.Name = "AddEditModuleView";
-            this.Size = new System.Drawing.Size(214, 208);
+            this.Size = new System.Drawing.Size(249, 293);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -87,5 +96,6 @@
         private System.Windows.Forms.TextBox codeTF;
         private System.Windows.Forms.TextBox yearTF;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox creditsTF;
     }
 }
