@@ -60,6 +60,12 @@
     <Compile Include="ModuleTable.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="ModuleDetailView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ModuleDetailView.Designer.cs">
+      <DependentUpon>ModuleDetailView.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewController.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddEditModuleView.resx">
       <DependentUpon>AddEditModuleView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuleDetailView.resx">
+      <DependentUpon>ModuleDetailView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewController.resx">
       <DependentUpon>ViewController.cs</DependentUpon>
