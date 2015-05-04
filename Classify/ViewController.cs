@@ -86,8 +86,9 @@ namespace Classify
                 yr1BestModScore.Text = "No scores entered";
             }
 
+            Int16 yr2Average = averageScore(yr2);
             yr2ModCountLabel.Text = yr2.Count.ToString();
-            yr2AvgScore.Text = averageScore(yr2).ToString();
+            yr2AvgScore.Text = yr2Average.ToString();
             Module mod2 = bestModule(yr2);
             if (mod2 != null)
             {
@@ -100,8 +101,9 @@ namespace Classify
                 yr2BestModScore.Text = "No scores entered";
             }
 
+            Int16 yr3Average = averageScore(yr3);
             yr3ModCountLabel.Text = yr3.Count.ToString();
-            yr3AvgScore.Text = averageScore(yr3).ToString();
+            yr3AvgScore.Text = yr3Average.ToString();
             Module mod3 = bestModule(yr3);
             if (mod3 != null)
             {
@@ -113,6 +115,29 @@ namespace Classify
                 yr3BestMod.Text = "No scores entered";
                 yr3BestModScore.Text = "No scores entered";
             }
+
+            String classification;
+            if (yr2Average > 60 && yr3Average > 70)
+            {
+                classification = "1st";
+            }
+            else if (yr2Average > 50 && yr3Average > 60)
+            {
+                classification = "2:1";
+            }
+            else if (yr2Average > 40 && yr3Average > 60)
+            {
+                classification = "2:2";
+            }
+            else if (yr2Average > 40 && yr3Average > 40)
+            {
+                classification = "3rd";
+            }
+            else
+            {
+                classification = "Fail";
+            }
+            degClassLabel.Text = classification;
 
         }
 
