@@ -493,7 +493,7 @@
             // 
             // predictOnButton
             // 
-            this.predictOnButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.predictOnButton.BackColor = System.Drawing.SystemColors.Control;
             this.predictOnButton.Location = new System.Drawing.Point(62, 2);
             this.predictOnButton.Name = "predictOnButton";
             this.predictOnButton.Size = new System.Drawing.Size(35, 23);
@@ -519,6 +519,7 @@
             this.predictOffButton.TabIndex = 4;
             this.predictOffButton.Text = "Off";
             this.predictOffButton.UseVisualStyleBackColor = true;
+            this.predictOffButton.Click += new System.EventHandler(this.predictOffButton_Click);
             // 
             // ViewController
             // 

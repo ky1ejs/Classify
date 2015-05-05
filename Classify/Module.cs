@@ -184,8 +184,8 @@ namespace Classify
             ModulePredition prediction;
             prediction.actualScore = score();
             prediction.creditsPredicted = 100 - prediction.actualScore.percentageAttempted;
-            prediction.predictedPercentageScore = prediction.actualScore.percentageScore + (prediction.creditsPredicted * (prediction.actualScore.averageAssessmentResult / 100));
-            prediction.predictedCreditScore = this.credits * (prediction.predictedPercentageScore / 100);
+            prediction.predictedPercentageScore = Convert.ToInt64((float)prediction.actualScore.percentageScore + ((float)prediction.creditsPredicted * ((float)prediction.actualScore.averageAssessmentResult / 100F)));
+            prediction.predictedCreditScore = Convert.ToInt64((float)this.credits * ((float)prediction.predictedPercentageScore / 100F));
             return prediction;
         }
 
@@ -261,28 +261,46 @@ namespace Classify
         {
             List<Module> mods = modulesForYear(year);
             ModulePredition? bestModule = null;
-            Int64 totalPercentage = 0;
-            Int64 totalCreditsScored = 0;
-            Int64 totalCreditsAttempted = 0;
+            Int64? totalPercentage = null;
+            Int64? totalCreditsScored = null;
+            Int64? totalCreditsAttempted = null;
             foreach (Module mod in mods)
             {
                 ModulePredition modPrediction = mod.prediction();
                 if (bestModule == null || modPrediction.predictedPercentageScore > bestModule.Value.predictedPercentageScore) bestModule = modPrediction;
-                totalPercentage += modPrediction.predictedPercentageScore.Value;
-                totalCreditsScored += modPrediction.predictedCreditScore.Value;
+                if (modPrediction.predictedPercentageScore != null)
+                {
+                    if (totalPercentage == null) totalPercentage = 0;
+                    totalPercentage += modPrediction.predictedPercentageScore.Value;
+                }
+                if (modPrediction.predictedCreditScore != null)
+                {
+                    if (totalCreditsScored == null) totalCreditsScored = 0;
+                    totalCreditsScored += modPrediction.predictedCreditScore.Value;
+                }
+                if (totalCreditsAttempted == null) totalCreditsAttempted = 0;
                 totalCreditsAttempted += mod.credits;
             }
             YearPrediction prediction;
             prediction.year = year;
             prediction.creditScore = totalCreditsScored;
-            prediction.percentageScore = totalCreditsScored / (120 / 100);
             prediction.bestModule = bestModule;
             prediction.averageModulePercentage = totalPercentage / mods.Count;
             prediction.moduleCount = mods.Count;
             prediction.creditsAttempted = totalCreditsAttempted;
             prediction.creditsPredicted = 120 - prediction.creditsAttempted;
-            prediction.predictedPercentageScore = prediction.percentageScore + (prediction.creditsPredicted * (prediction.averageModulePercentage / 100));
-            prediction.predictedCreditScore = 120 * (prediction.predictedPercentageScore / 100);
+            if (totalCreditsScored != null)
+            {
+                prediction.percentageScore = Convert.ToInt64((float)totalCreditsScored.Value / (120F / 100F));
+                prediction.predictedPercentageScore = Convert.ToInt64((float)prediction.percentageScore.Value + ((float)prediction.creditsPredicted.Value * ((float)prediction.averageModulePercentage / 100F)));
+                prediction.predictedCreditScore = Convert.ToInt64(120F * ((float)prediction.predictedPercentageScore / 100F));
+            }
+            else
+            {
+                prediction.percentageScore = null;
+                prediction.predictedPercentageScore = null;
+                prediction.predictedCreditScore = null;
+            }
             return prediction;
         }
 
