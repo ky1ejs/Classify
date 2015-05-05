@@ -20,12 +20,15 @@ namespace Classify
         ModuleTableView year1Table;
         ModuleTableView year2Table;
         ModuleTableView year3Table;
+        TabPage currentPage;
         public ViewController()
         {
             InitializeComponent();
 
             predictOffButton.BackColor = Color.LightBlue;
             activePredButton = predictOffButton;
+
+            currentPage = homeTabPage;
 
             addModuleButton.Anchor = AnchorStyles.Right | AnchorStyles.Top;
 
@@ -79,6 +82,7 @@ namespace Classify
             {
                 calcStats();
             }
+            currentPage = e.TabPage;
         }
 
         private void calcStats()
@@ -220,6 +224,12 @@ namespace Classify
         {
             this.Controls.Add(addEditModView);
             addEditModView.Size = new Size(this.Size.Width, this.Size.Height);
+            Int64 year;
+            if (currentPage == year1TabPage) year = 1;
+            else if (currentPage == year2TabPage) year = 2;
+            else if (currentPage == year3TabPage) year = 3;
+            else year = 0;
+            addEditModView.setSelectedYearButton(year);
             addEditModView.BringToFront();
         }
 

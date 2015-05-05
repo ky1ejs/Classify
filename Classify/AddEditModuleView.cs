@@ -42,11 +42,30 @@ namespace Classify
             }
             this.Parent.Controls.Remove(this);
         }
+
+        public void setSelectedYearButton(Int64 year)
+        {
+            switch (year)
+            {
+                case 1:
+                    yearButtonSelected(yr1Button);
+                    break;
+                case 2:
+                    yearButtonSelected(yr2Button);
+                    break;
+                case 3:
+                    yearButtonSelected(yr3Button);
+                    break;
+                default:
+                    yearButtonSelected(null);
+                    break;
+            }
+        }
         private void yearButtonSelected(Button selectedButton) 
         {
             if (this.selectedYearButton != null) this.selectedYearButton.BackColor = Color.Transparent;
             this.selectedYearButton = selectedButton;
-            this.selectedYearButton.BackColor = Color.LightBlue;
+            if (this.selectedYearButton != null) this.selectedYearButton.BackColor = Color.LightBlue;
         }
 
         private void button1_Click_1(object sender, EventArgs e)

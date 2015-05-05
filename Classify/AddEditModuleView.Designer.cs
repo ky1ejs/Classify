@@ -31,9 +31,9 @@
             this.nameTF = new System.Windows.Forms.TextBox();
             this.codeTF = new System.Windows.Forms.TextBox();
             this.saveButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.yr1Button = new System.Windows.Forms.Button();
+            this.yr2Button = new System.Windows.Forms.Button();
+            this.yr3Button = new System.Windows.Forms.Button();
             this.creditsTF = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -66,35 +66,35 @@
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button1
+            // yr1Button
             // 
-            this.button1.Location = new System.Drawing.Point(61, 122);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(55, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.yr1Button.Location = new System.Drawing.Point(61, 122);
+            this.yr1Button.Name = "yr1Button";
+            this.yr1Button.Size = new System.Drawing.Size(55, 23);
+            this.yr1Button.TabIndex = 0;
+            this.yr1Button.Text = "1";
+            this.yr1Button.UseVisualStyleBackColor = true;
+            this.yr1Button.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // button2
+            // yr2Button
             // 
-            this.button2.Location = new System.Drawing.Point(122, 122);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(55, 23);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.yr2Button.Location = new System.Drawing.Point(122, 122);
+            this.yr2Button.Name = "yr2Button";
+            this.yr2Button.Size = new System.Drawing.Size(55, 23);
+            this.yr2Button.TabIndex = 0;
+            this.yr2Button.Text = "2";
+            this.yr2Button.UseVisualStyleBackColor = true;
+            this.yr2Button.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // yr3Button
             // 
-            this.button3.Location = new System.Drawing.Point(183, 122);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(55, 23);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.yr3Button.Location = new System.Drawing.Point(183, 122);
+            this.yr3Button.Name = "yr3Button";
+            this.yr3Button.Size = new System.Drawing.Size(55, 23);
+            this.yr3Button.TabIndex = 0;
+            this.yr3Button.Text = "3";
+            this.yr3Button.UseVisualStyleBackColor = true;
+            this.yr3Button.Click += new System.EventHandler(this.button3_Click);
             // 
             // creditsTF
             // 
@@ -160,9 +160,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.creditsTF);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.yr3Button);
+            this.Controls.Add(this.yr2Button);
+            this.Controls.Add(this.yr1Button);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.codeTF);
             this.Controls.Add(this.nameTF);
@@ -178,9 +178,9 @@
         private System.Windows.Forms.TextBox nameTF;
         private System.Windows.Forms.TextBox codeTF;
         private System.Windows.Forms.Button saveButton;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button yr1Button;
+        private System.Windows.Forms.Button yr2Button;
+        private System.Windows.Forms.Button yr3Button;
         private System.Windows.Forms.TextBox creditsTF;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
