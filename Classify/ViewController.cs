@@ -94,16 +94,16 @@ namespace Classify
             yr2AvgScoreLabel.Text = yr2.averageModulePercentage.ToString();
             if (yr2.bestModule != null)
             {
-                yr2BestModLabel.Text = yr1.bestModule.Value.module.name;
-                yr2BestModScoreLabel.Text = yr1.bestModule.Value.percentageScore.ToString();
+                yr2BestModLabel.Text = yr2.bestModule.Value.module.name;
+                yr2BestModScoreLabel.Text = yr2.bestModule.Value.percentageScore.ToString();
             }
 
             yr3ModCountLabel.Text = yr3.moduleCount.Value.ToString();
             yr3AvgScoreLabel.Text = yr3.averageModulePercentage.ToString();
             if (yr3.bestModule != null)
             {
-                yr3BestModLabel.Text = yr1.bestModule.Value.module.name;
-                yr3BestModScoreLabel.Text = yr1.bestModule.Value.percentageScore.ToString();
+                yr3BestModLabel.Text = yr3.bestModule.Value.module.name;
+                yr3BestModScoreLabel.Text = yr3.bestModule.Value.percentageScore.ToString();
             }
 
             String classification;

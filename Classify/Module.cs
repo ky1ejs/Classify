@@ -151,8 +151,14 @@ namespace Classify
             Int64? totalWeight = null;
             foreach (Assessment assessment in assessments)
             {
-                percentageScore += Convert.ToInt64(assessment.weight * (assessment.result / 100));
-                totalPercentages += assessment.result;
+                if (assessment.result != null)
+                {
+                    if (percentageScore == null) percentageScore = 0;
+                    if (totalPercentages == null) totalPercentages = 0;
+                    percentageScore += Convert.ToInt64((float)assessment.weight * ((float)assessment.result.Value / 100F));
+                    totalPercentages += assessment.result.Value;
+                }
+                if (totalWeight == null) totalWeight = 0;
                 totalWeight += assessment.weight;
             }
             ModuleScore score;
