@@ -32,6 +32,8 @@ namespace Classify
             table.RowHeadersVisible = false;
             table.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             table.MultiSelect = false;
+            table.AllowUserToAddRows = false;
+            table.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             String stm = "SELECT name, code, credits FROM Modules WHERE year = @year";
             SQLiteDataAdapter adapt = new SQLiteDataAdapter(stm, DBSchema.connection());
             adapt.SelectCommand.Parameters.Add(new SQLiteParameter("@year", year));
@@ -50,6 +52,11 @@ namespace Classify
             }
             table.ClearSelection();
             table.CellClick += new DataGridViewCellEventHandler(this.rowSelected);
+        }
+
+        public void clearSelection()
+        {
+            table.ClearSelection();
         }
 
         private void rowSelected(object sender, DataGridViewCellEventArgs e)

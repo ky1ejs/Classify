@@ -29,6 +29,8 @@ namespace Classify
             assessmentTable.RowHeadersVisible = false;
             assessmentTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             assessmentTable.MultiSelect = false;
+            assessmentTable.AllowUserToAddRows = false;
+            assessmentTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             initialiseTableData();
         }
 

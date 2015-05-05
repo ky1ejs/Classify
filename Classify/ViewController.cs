@@ -78,11 +78,11 @@ namespace Classify
 
         private void tab_Selected(Object sender, TabControlEventArgs e) 
         {
-            if (e.TabPage == homeTabPage)
-            {
-                calcStats();
-            }
+            if (e.TabPage == homeTabPage)calcStats();
             currentPage = e.TabPage;
+            if (e.TabPage == year1TabPage) year1Table.clearSelection();
+            else if (e.TabPage == year2TabPage) year2Table.clearSelection();
+            else if (e.TabPage == year3TabPage)  year3Table.clearSelection();
         }
 
         private void calcStats()
