@@ -25,14 +25,55 @@ namespace Classify
             this.del = new WeakReference<AddEditModuleViewDelegate>(aDelegate);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void saveButton_Click(object sender, EventArgs e)
         {
             String name = nameTF.Text;
             String code = codeTF.Text;
-            int year;
-            int.TryParse(selectedYearButton.Text, out year);
+            int year = 0;
+            Boolean yearParsed;
+            if (selectedYearButton == null) yearParsed = false;
+            else yearParsed = int.TryParse(selectedYearButton.Text, out year);
             int credits;
-            int.TryParse(creditsTF.Text, out credits);
+            Boolean creditsParsed = int.TryParse(creditsTF.Text, out credits);
+
+            String mbMessage = null;
+            if (name.Length == 0)
+            {
+                mbMessage = "- Please enter a name";
+            }
+            if (code.Length == 0)
+            {
+                if (mbMessage == null) mbMessage = "";
+                mbMessage += "\n- Please enter a code";
+            }
+            if (!yearParsed)
+            {
+                if (mbMessage == null) mbMessage = "";
+                mbMessage = "\n- Please select a year";
+            }
+            if (!creditsParsed)
+            {
+                if (mbMessage == null) mbMessage = "";
+                mbMessage = "\n- Please enter a valid number of credits";
+            }
+            if (mbMessage != null)
+            {
+                MessageBox.Show(mbMessage, "Missing or invalid details");
+                return;
+            }
+                
+            String stm = "SELECT SUM(credits) AS total_credits FROM Modules WHERE year = @year";
+            SQLiteCommand cm = new SQLiteCommand(stm, DBSchema.connection());  
+            cm.Parameters.Add(new SQLiteParameter("@year", year));
+            SQLiteDataReader dr = cm.ExecuteReader();
+            dr.Read();
+            Int64? totalCreditsForYear = dr["total_credits"] as Int64?;
+            if (totalCreditsForYear.Value + credits > 120)
+            {
+                MessageBox.Show(String.Format("You may only have 120 per year. There are already {0} credits in this module. You have entered {1}.", totalCreditsForYear, credits), "Missing or invalid details");
+                return;
+            }
+
             Module newModule = Module.create(name, code, Convert.ToInt64(year), Convert.ToInt64(credits));
             if (del != null) 
             {
