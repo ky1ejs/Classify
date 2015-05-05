@@ -15,9 +15,9 @@ namespace Classify
     {
         private DataGridView table;
         private List<Module> modules;
-        private Int32 year;
+        private Int64 year;
         private ModuleDetailView detailView;
-        public ModuleTableView(Int32 year)
+        public ModuleTableView(Int64 year)
         {
             this.year = year;
             initialiseTable();
@@ -57,7 +57,6 @@ namespace Classify
             int selectedRow = table.CurrentCell.RowIndex;
             if (selectedRow > -1)
             {
-                if (detailView != null) this.Controls.Remove(detailView);
                 detailView = new ModuleDetailView(modules[selectedRow]);
                 detailView.Location = new Point(0, 0);
                 detailView.Size = new Size(this.Size.Width, this.Size.Height);

@@ -83,19 +83,28 @@ namespace Classify
             Module.YearScore yr3 = Module.scoreForYear(3);
 
             yr1ModCountLabel.Text = yr1.moduleCount.Value.ToString();
-            yr1AvgScoreLabel.Text = yr1.averageModulePercentage.Value.ToString();
-            yr1BestModLabel.Text = yr1.bestModule.Value.module.name;
-            yr1BestModScoreLabel.Text = yr1.bestModule.Value.percentageScore.Value.ToString();
+            yr1AvgScoreLabel.Text = (yr1.averageModulePercentage != null) ? yr1.averageModulePercentage.Value.ToString() : "No assessments attempted";
+            if (yr1.bestModule != null)
+            {
+                yr1BestModLabel.Text = yr1.bestModule.Value.module.name;
+                yr1BestModScoreLabel.Text = yr1.bestModule.Value.percentageScore.ToString();
+            }
 
             yr2ModCountLabel.Text = yr2.moduleCount.Value.ToString();
-            yr2AvgScoreLabel.Text = yr2.averageModulePercentage.Value.ToString();
-            yr2BestModLabel.Text = yr2.bestModule.Value.module.name;
-            yr2BestModScoreLabel.Text = yr2.bestModule.Value.percentageScore.Value.ToString();
+            yr2AvgScoreLabel.Text = yr2.averageModulePercentage.ToString();
+            if (yr2.bestModule != null)
+            {
+                yr2BestModLabel.Text = yr1.bestModule.Value.module.name;
+                yr2BestModScoreLabel.Text = yr1.bestModule.Value.percentageScore.ToString();
+            }
 
             yr3ModCountLabel.Text = yr3.moduleCount.Value.ToString();
-            yr3AvgScoreLabel.Text = yr3.averageModulePercentage.Value.ToString();
-            yr3BestModLabel.Text = yr3.bestModule.Value.module.name;
-            yr3BestModScoreLabel.Text = yr3.bestModule.Value.percentageScore.Value.ToString();
+            yr3AvgScoreLabel.Text = yr3.averageModulePercentage.ToString();
+            if (yr3.bestModule != null)
+            {
+                yr3BestModLabel.Text = yr1.bestModule.Value.module.name;
+                yr3BestModScoreLabel.Text = yr1.bestModule.Value.percentageScore.ToString();
+            }
 
             String classification;
             if (yr2.averageModulePercentage > 60 && yr3.averageModulePercentage > 70)

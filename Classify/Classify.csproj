@@ -56,6 +56,7 @@
     <Compile Include="AddEditAssessment.Designer.cs">
       <DependentUpon>AddEditAssessment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Assessment.cs" />
     <Compile Include="DBSchema.cs" />
     <Compile Include="AddEditModuleView.cs">
       <SubType>UserControl</SubType>

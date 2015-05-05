@@ -16,10 +16,10 @@ namespace Classify
         const String yearColumn =       "year";
         const String creditsColumn =    "credits";
 
-        private Int32 _id;
-        public Int32 id
+        private Int64? _id;
+        public Int64 id
         {
-            get { return _id; }
+            get { return _id.Value; }
             set { }
         }
 
@@ -61,10 +61,10 @@ namespace Classify
                 }
             }
         }
-        private Int32 _year;
-        public Int32 year
+        private Int64? _year;
+        public Int64 year
         {
-            get { return _year; }
+            get { return _year.Value; }
             set
             {
                 if (value != _year)
@@ -80,8 +80,8 @@ namespace Classify
                 }
             }
         }
-        private Int32 _credits;
-        public Int32 credits
+        private Int64 _credits;
+        public Int64 credits
         {
             get { return _credits; }
             set
@@ -101,21 +101,21 @@ namespace Classify
         }
 
         public Module(SQLiteDataReader results) {
-            this.id = results.GetInt32(0);
-            this.name = results["name"] as String;
-            this.code = results["code"] as String;
-            this.year = results.GetInt32(3);
+            this._id = results[idColumn] as Int64?;
+            this._name = results[nameColumn] as String;
+            this._code = results[codeColumn] as String;
+            this._year = results[yearColumn] as Int64?;
         }
 
-        private Module(Int32 id, String name, String code, Int32 year, Int32 credits) {
-            this.id = id;
-            this.name = name;
-            this.code = code;
-            this.year = year;
-            this.credits = credits;
+        private Module(Int64 id, String name, String code, Int64 year, Int64 credits) {
+            this._id = id;
+            this._name = name;
+            this._code = code;
+            this._year = year;
+            this._credits = credits;
         }
 
-        public static Module create(String name, String code, Int32 year, Int32 credits)
+        public static Module create(String name, String code, Int64 year, Int64 credits)
         {
             String stm = "INSERT INTO " + tableName + " (name, code, year, credits) VALUES(@name, @code, @year, @credits)";
             SQLiteCommand insert = new SQLiteCommand(stm, DBSchema.connection());
@@ -127,16 +127,16 @@ namespace Classify
             SQLiteCommand insertedID = new SQLiteCommand("SELECT LAST_INSERT_ROWID()", DBSchema.connection());
             SQLiteDataReader reader = insertedID.ExecuteReader();
             reader.Read();
-            return new Module(reader.GetInt32(0), name, code, year, credits);
+            return new Module(reader.GetInt64(0), name, code, year, credits);
         }
 
         public struct ModuleScore
         {
             public Module module;
-            public Int32? percentageScore;
-            public Int32? creditScore;
-            public Int32? percentageAttempted;
-            public Int32? averageAssessmentResult;
+            public Int64? percentageScore;
+            public Int64? creditScore;
+            public Int64? percentageAttempted;
+            public Int64? averageAssessmentResult;
         }
 
         public ModuleScore score()
@@ -146,12 +146,12 @@ namespace Classify
             cm.Parameters.Add(new SQLiteParameter("@module", id));
             SQLiteDataReader dr = cm.ExecuteReader();
             List<Assessment> assessments = Assessment.assessmentsFromDataReader(dr);
-            Int32? percentageScore = null;
-            Int32? totalPercentages = null;
-            Int32? totalWeight = null;
+            Int64? percentageScore = null;
+            Int64? totalPercentages = null;
+            Int64? totalWeight = null;
             foreach (Assessment assessment in assessments)
             {
-                percentageScore += Convert.ToInt32(assessment.weight * (assessment.result / 100));
+                percentageScore += Convert.ToInt64(assessment.weight * (assessment.result / 100));
                 totalPercentages += assessment.result;
                 totalWeight += assessment.weight;
             }
@@ -168,9 +168,9 @@ namespace Classify
         public struct ModulePredition
         {
             public ModuleScore actualScore;
-            public Int32? predictedPercentageScore;
-            public Int32? predictedCreditScore;
-            public Int32? creditsPredicted;
+            public Int64? predictedPercentageScore;
+            public Int64? predictedCreditScore;
+            public Int64? creditsPredicted;
         }
 
         public ModulePredition prediction()
@@ -185,29 +185,29 @@ namespace Classify
 
         public struct YearScore
         {
-            public Int32 year;
-            public Int32? percentageScore;
-            public Int32? creditScore;
-            //public Int32? best105CreditPercentage;
+            public Int64 year;
+            public Int64? percentageScore;
+            public Int64? creditScore;
+            //public Int64? best105CreditPercentage;
             public ModuleScore? bestModule;
-            public Int32? averageModulePercentage;
-            public Int32? moduleCount;
-            public Int32? creditsAttempted;
+            public Int64? averageModulePercentage;
+            public Int64? moduleCount;
+            public Int64? creditsAttempted;
         }
 
-        public static YearScore scoreForYear(Int32 year)
+        public static YearScore scoreForYear(Int64 year)
         {
             List<Module> mods = modulesForYear(year);
             ModuleScore? bestModule = null;
-            Int32 totalPercentage = 0;
-            Int32 totalCreditsScored = 0;
-            Int32 totalCreditsAttempted = 0;
+            Int64? totalPercentage = null;
+            Int64? totalCreditsScored = null;
+            Int64? totalCreditsAttempted = null;
             foreach (Module mod in mods)
             {
                 ModuleScore modScore = mod.score();
                 if (bestModule == null || modScore.percentageScore > bestModule.Value.percentageScore) bestModule = modScore;
-                totalPercentage += modScore.percentageScore.Value;
-                totalCreditsScored += modScore.creditScore.Value;
+                totalPercentage += modScore.percentageScore;
+                totalCreditsScored += modScore.creditScore;
                 totalCreditsAttempted += mod.credits;
             }
             YearScore score;
@@ -222,26 +222,26 @@ namespace Classify
         }
 
         public struct YearPrediction {
-            public Int32 year;
-            public Int32? percentageScore;
-            public Int32? creditScore;
-            //public Int32? best105CreditPercentage;
+            public Int64 year;
+            public Int64? percentageScore;
+            public Int64? creditScore;
+            //public Int64? best105CreditPercentage;
             public ModulePredition? bestModule;
-            public Int32? averageModulePercentage;
-            public Int32? moduleCount;
-            public Int32? creditsAttempted;
-            public Int32? predictedPercentageScore;
-            public Int32? predictedCreditScore;
-            public Int32? creditsPredicted;
+            public Int64? averageModulePercentage;
+            public Int64? moduleCount;
+            public Int64? creditsAttempted;
+            public Int64? predictedPercentageScore;
+            public Int64? predictedCreditScore;
+            public Int64? creditsPredicted;
         }
 
-        public static YearPrediction predictionForYear(Int32 year)
+        public static YearPrediction predictionForYear(Int64 year)
         {
             List<Module> mods = modulesForYear(year);
             ModulePredition? bestModule = null;
-            Int32 totalPercentage = 0;
-            Int32 totalCreditsScored = 0;
-            Int32 totalCreditsAttempted = 0;
+            Int64 totalPercentage = 0;
+            Int64 totalCreditsScored = 0;
+            Int64 totalCreditsAttempted = 0;
             foreach (Module mod in mods)
             {
                 ModulePredition modPrediction = mod.prediction();
@@ -264,7 +264,7 @@ namespace Classify
             return prediction;
         }
 
-        public static List<Module> modulesForYear(Int32 year)
+        public static List<Module> modulesForYear(Int64 year)
         {
             List<Module> results = new List<Module>();
             String stm = "SELECT * FROM Modules WHERE year = @yr";
