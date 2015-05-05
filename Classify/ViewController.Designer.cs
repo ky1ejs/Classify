@@ -69,6 +69,9 @@
             this.year2TabPage = new System.Windows.Forms.TabPage();
             this.year3TabPage = new System.Windows.Forms.TabPage();
             this.addModuleButton = new System.Windows.Forms.Button();
+            this.predictOnButton = new System.Windows.Forms.Button();
+            this.label21 = new System.Windows.Forms.Label();
+            this.predictOffButton = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.homeTabPage.SuspendLayout();
             this.SuspendLayout();
@@ -488,11 +491,43 @@
             this.addModuleButton.UseVisualStyleBackColor = true;
             this.addModuleButton.Click += new System.EventHandler(this.addModuleButton_Click);
             // 
+            // predictOnButton
+            // 
+            this.predictOnButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.predictOnButton.Location = new System.Drawing.Point(62, 2);
+            this.predictOnButton.Name = "predictOnButton";
+            this.predictOnButton.Size = new System.Drawing.Size(35, 23);
+            this.predictOnButton.TabIndex = 2;
+            this.predictOnButton.Text = "On";
+            this.predictOnButton.UseVisualStyleBackColor = false;
+            this.predictOnButton.Click += new System.EventHandler(this.predictOnButton_Click);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(4, 7);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(57, 13);
+            this.label21.TabIndex = 3;
+            this.label21.Text = "Prediction:";
+            // 
+            // predictOffButton
+            // 
+            this.predictOffButton.Location = new System.Drawing.Point(103, 2);
+            this.predictOffButton.Name = "predictOffButton";
+            this.predictOffButton.Size = new System.Drawing.Size(34, 23);
+            this.predictOffButton.TabIndex = 4;
+            this.predictOffButton.Text = "Off";
+            this.predictOffButton.UseVisualStyleBackColor = true;
+            // 
             // ViewController
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(541, 382);
+            this.Controls.Add(this.predictOffButton);
+            this.Controls.Add(this.label21);
+            this.Controls.Add(this.predictOnButton);
             this.Controls.Add(this.addModuleButton);
             this.Controls.Add(this.tabControl);
             this.Name = "ViewController";
@@ -501,6 +536,7 @@
             this.homeTabPage.ResumeLayout(false);
             this.homeTabPage.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -547,6 +583,9 @@
         private System.Windows.Forms.Label yr1BestModLabel;
         private System.Windows.Forms.Label yr1AvgScoreLabel;
         private System.Windows.Forms.Label yr1ModCountLabel;
+        private System.Windows.Forms.Button predictOnButton;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Button predictOffButton;
     }
 }
 

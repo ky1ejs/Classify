@@ -151,5 +151,10 @@ namespace Classify
             addEditModView.Size = new Size(this.Size.Width, this.Size.Height);
             addEditModView.BringToFront();
         }
+
+        private void predictOnButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

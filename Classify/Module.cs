@@ -139,24 +139,6 @@ namespace Classify
             public Int32? averageAssessmentResult;
         }
 
-        public struct ModulePredition
-        {
-            public ModuleScore actualScore;
-            public Int32? predictedPercentageScore;
-            public Int32? predictedCreditScore;
-            public Int32? creditsPredicted;
-        }
-
-        public ModulePredition prediction()
-        {
-            ModulePredition prediction;
-            prediction.actualScore = score();
-            prediction.creditsPredicted = 100 - prediction.actualScore.percentageAttempted;
-            prediction.predictedPercentageScore = prediction.actualScore.percentageScore + (prediction.creditsPredicted * (prediction.actualScore.averageAssessmentResult / 100));
-            prediction.predictedCreditScore = this.credits * (prediction.predictedPercentageScore / 100);
-            return prediction;
-        }
-
         public ModuleScore score()
         {
             String stm = "SELECT * FROM Assessments WHERE module_id = @module";
@@ -177,10 +159,28 @@ namespace Classify
             score.module = this;
             score.percentageScore = percentageScore;
             score.creditScore = this.credits * (percentageScore / 100);
-            score.percentageAttempted = 100 - totalWeight;
+            score.percentageAttempted = totalWeight;
             score.averageAssessmentResult = totalPercentages / assessments.Count;
             return score;
             
+        }
+
+        public struct ModulePredition
+        {
+            public ModuleScore actualScore;
+            public Int32? predictedPercentageScore;
+            public Int32? predictedCreditScore;
+            public Int32? creditsPredicted;
+        }
+
+        public ModulePredition prediction()
+        {
+            ModulePredition prediction;
+            prediction.actualScore = score();
+            prediction.creditsPredicted = 100 - prediction.actualScore.percentageAttempted;
+            prediction.predictedPercentageScore = prediction.actualScore.percentageScore + (prediction.creditsPredicted * (prediction.actualScore.averageAssessmentResult / 100));
+            prediction.predictedCreditScore = this.credits * (prediction.predictedPercentageScore / 100);
+            return prediction;
         }
 
         public struct YearScore
@@ -192,15 +192,12 @@ namespace Classify
             public ModuleScore? bestModule;
             public Int32? averageModulePercentage;
             public Int32? moduleCount;
+            public Int32? creditsAttempted;
         }
 
         public static YearScore scoreForYear(Int32 year)
         {
-            String stm = "SELECT * FROM Modules WHERE year = @year";
-            SQLiteCommand cm = new SQLiteCommand(stm, DBSchema.connection());
-            cm.Parameters.Add(new SQLiteParameter("@year", year));
-            SQLiteDataReader dr = cm.ExecuteReader();
-            List<Module> mods = Module.modulesFromDataReader(dr);
+            List<Module> mods = modulesForYear(year);
             ModuleScore? bestModule = null;
             Int32 totalPercentage = 0;
             Int32 totalCredits = 0;
@@ -218,7 +215,49 @@ namespace Classify
             score.bestModule = bestModule;
             score.averageModulePercentage = totalPercentage / mods.Count;
             score.moduleCount = mods.Count;
+            score.creditsAttempted = totalCredits;
             return score;
+        }
+
+        public struct YearPrediction {
+            public Int32 year;
+            public Int32? percentageScore;
+            public Int32? creditScore;
+            //public Int32? best105CreditPercentage;
+            public ModulePredition? bestModule;
+            public Int32? averageModulePercentage;
+            public Int32? moduleCount;
+            public Int32? creditsAttempted;
+            public Int32? predictedPercentageScore;
+            public Int32? predictedCreditScore;
+            public Int32? creditsPredicted;
+        }
+
+        public static YearPrediction predictionForYear(Int32 year)
+        {
+            List<Module> mods = modulesForYear(year);
+            ModulePredition? bestModule = null;
+            Int32 totalPercentage = 0;
+            Int32 totalCredits = 0;
+            foreach (Module mod in mods)
+            {
+                ModulePredition modPrediction = mod.prediction();
+                if (bestModule == null || modPrediction.predictedPercentageScore > bestModule.Value.predictedPercentageScore) bestModule = modPrediction;
+                totalCredits += modPrediction.predictedCreditScore.Value;
+                totalPercentage += modPrediction.predictedPercentageScore.Value;
+            }
+            YearPrediction prediction;
+            prediction.year = year;
+            prediction.creditScore = totalCredits;
+            prediction.percentageScore = totalCredits / (120 / 100);
+            prediction.bestModule = bestModule;
+            prediction.averageModulePercentage = totalPercentage / mods.Count;
+            prediction.moduleCount = mods.Count;
+            prediction.creditsAttempted = totalCredits;
+            prediction.creditsPredicted = 120 - prediction.creditsAttempted;
+            prediction.predictedPercentageScore = prediction.percentageScore + (prediction.creditsPredicted * (prediction.averageModulePercentage / 100));
+            prediction.predictedCreditScore = 120 * (prediction.predictedPercentageScore / 100);
+            return prediction;
         }
 
         public static List<Module> modulesForYear(Int32 year)
