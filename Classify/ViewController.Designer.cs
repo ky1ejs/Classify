@@ -299,11 +299,11 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(41, 255);
+            this.label19.Location = new System.Drawing.Point(3, 255);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(78, 13);
+            this.label19.Size = new System.Drawing.Size(116, 13);
             this.label19.TabIndex = 24;
-            this.label19.Text = "Average Score";
+            this.label19.Text = "Average Module Score";
             // 
             // label20
             // 
@@ -345,11 +345,11 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(41, 163);
+            this.label14.Location = new System.Drawing.Point(3, 163);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(78, 13);
+            this.label14.Size = new System.Drawing.Size(116, 13);
             this.label14.TabIndex = 19;
-            this.label14.Text = "Average Score";
+            this.label14.Text = "Average Module Score";
             // 
             // label15
             // 
@@ -436,11 +436,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(41, 74);
+            this.label2.Location = new System.Drawing.Point(3, 74);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 13);
+            this.label2.Size = new System.Drawing.Size(116, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Average Score";
+            this.label2.Text = "Average Module Score";
             // 
             // label1
             // 
