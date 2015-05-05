@@ -200,22 +200,24 @@ namespace Classify
             List<Module> mods = modulesForYear(year);
             ModuleScore? bestModule = null;
             Int32 totalPercentage = 0;
-            Int32 totalCredits = 0;
+            Int32 totalCreditsScored = 0;
+            Int32 totalCreditsAttempted = 0;
             foreach (Module mod in mods)
             {
                 ModuleScore modScore = mod.score();
                 if (bestModule == null || modScore.percentageScore > bestModule.Value.percentageScore) bestModule = modScore;
-                totalCredits += modScore.creditScore.Value;
                 totalPercentage += modScore.percentageScore.Value;
+                totalCreditsScored += modScore.creditScore.Value;
+                totalCreditsAttempted += mod.credits;
             }
             YearScore score;
             score.year = year;
-            score.creditScore = totalCredits;
-            score.percentageScore = totalCredits / (120 / 100);
+            score.creditScore = totalCreditsScored;
+            score.percentageScore = totalCreditsScored / (120 / 100);
             score.bestModule = bestModule;
             score.averageModulePercentage = totalPercentage / mods.Count;
             score.moduleCount = mods.Count;
-            score.creditsAttempted = totalCredits;
+            score.creditsAttempted = totalCreditsAttempted;
             return score;
         }
 
@@ -238,22 +240,24 @@ namespace Classify
             List<Module> mods = modulesForYear(year);
             ModulePredition? bestModule = null;
             Int32 totalPercentage = 0;
-            Int32 totalCredits = 0;
+            Int32 totalCreditsScored = 0;
+            Int32 totalCreditsAttempted = 0;
             foreach (Module mod in mods)
             {
                 ModulePredition modPrediction = mod.prediction();
                 if (bestModule == null || modPrediction.predictedPercentageScore > bestModule.Value.predictedPercentageScore) bestModule = modPrediction;
-                totalCredits += modPrediction.predictedCreditScore.Value;
                 totalPercentage += modPrediction.predictedPercentageScore.Value;
+                totalCreditsScored += modPrediction.predictedCreditScore.Value;
+                totalCreditsAttempted += mod.credits;
             }
             YearPrediction prediction;
             prediction.year = year;
-            prediction.creditScore = totalCredits;
-            prediction.percentageScore = totalCredits / (120 / 100);
+            prediction.creditScore = totalCreditsScored;
+            prediction.percentageScore = totalCreditsScored / (120 / 100);
             prediction.bestModule = bestModule;
             prediction.averageModulePercentage = totalPercentage / mods.Count;
             prediction.moduleCount = mods.Count;
-            prediction.creditsAttempted = totalCredits;
+            prediction.creditsAttempted = totalCreditsAttempted;
             prediction.creditsPredicted = 120 - prediction.creditsAttempted;
             prediction.predictedPercentageScore = prediction.percentageScore + (prediction.creditsPredicted * (prediction.averageModulePercentage / 100));
             prediction.predictedCreditScore = 120 * (prediction.predictedPercentageScore / 100);
