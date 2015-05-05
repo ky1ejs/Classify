@@ -212,14 +212,30 @@ namespace Classify
             {
                 ModuleScore modScore = mod.score();
                 if (bestModule == null || modScore.percentageScore > bestModule.Value.percentageScore) bestModule = modScore;
-                totalPercentage += modScore.percentageScore;
-                totalCreditsScored += modScore.creditScore;
+                if (modScore.percentageScore != null)
+                {
+                    if (totalPercentage == null) totalPercentage = 0;
+                    totalPercentage += modScore.percentageScore.Value;
+                }
+                if (modScore.creditScore != null)
+                {
+                    if (totalCreditsScored == null) totalCreditsScored = 0;
+                    totalCreditsScored += modScore.creditScore.Value;
+                }
+                if (totalCreditsAttempted == null) totalCreditsAttempted = 0;
                 totalCreditsAttempted += mod.credits;
             }
             YearScore score;
             score.year = year;
             score.creditScore = totalCreditsScored;
-            score.percentageScore = totalCreditsScored / (120 / 100);
+            if (totalCreditsScored != null)
+            {
+                score.percentageScore = Convert.ToInt64((float)totalCreditsScored.Value / (120F / 100F));
+            }
+            else
+            {
+                score.percentageScore = null;
+            }
             score.bestModule = bestModule;
             score.averageModulePercentage = totalPercentage / mods.Count;
             score.moduleCount = mods.Count;
