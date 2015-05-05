@@ -63,73 +63,54 @@ namespace Classify
             year3Table.Size = new Size(year2TabPage.Size.Width, year2TabPage.Size.Height);
             year3TabPage.Controls.Add(year3Table);
 
+            tabControl.Selected += this.tab_Selected;
+
             calcStats();
+        }
+
+        private void tab_Selected(Object sender, TabControlEventArgs e) 
+        {
+            if (e.TabPage == homeTabPage)
+            {
+                calcStats();
+            }
         }
 
         private void calcStats()
         {
-            List<Module> yr1 = modulesForYear(1);
-            List<Module> yr2 = modulesForYear(2);
-            List<Module> yr3 = modulesForYear(3);
+            Module.YearScore yr1 = Module.scoreForYear(1);
+            Module.YearScore yr2 = Module.scoreForYear(2);
+            Module.YearScore yr3 = Module.scoreForYear(3);
 
-            yr1ModCountLabel.Text = yr1.Count.ToString();
-            yr1AvgScore.Text = averageScore(yr1).ToString();
-            Module mod1 = bestModule(yr1);
-            if (mod1 != null)
-            {
-                yr1BestMod.Text = mod1.name;
-                yr1BestModScore.Text = mod1.averageScore().ToString();
-            }
-            else
-            {
-                yr1BestMod.Text = "No scores entered";
-                yr1BestModScore.Text = "No scores entered";
-            }
+            yr1ModCountLabel.Text = yr1.moduleCount.Value.ToString();
+            yr1AvgScoreLabel.Text = yr1.averageModulePercentage.Value.ToString();
+            yr1BestModLabel.Text = yr1.bestModule.Value.module.name;
+            yr1BestModScoreLabel.Text = yr1.bestModule.Value.percentageScore.Value.ToString();
 
-            Int16 yr2Average = averageScore(yr2);
-            yr2ModCountLabel.Text = yr2.Count.ToString();
-            yr2AvgScore.Text = yr2Average.ToString();
-            Module mod2 = bestModule(yr2);
-            if (mod2 != null)
-            {
-                yr2BestMod.Text = mod2.name;
-                yr2BestModScore.Text = mod2.averageScore().ToString();
-            }
-            else
-            {
-                yr2BestMod.Text = "No scores entered";
-                yr2BestModScore.Text = "No scores entered";
-            }
+            yr2ModCountLabel.Text = yr2.moduleCount.Value.ToString();
+            yr2AvgScoreLabel.Text = yr2.averageModulePercentage.Value.ToString();
+            yr2BestModLabel.Text = yr2.bestModule.Value.module.name;
+            yr2BestModScoreLabel.Text = yr2.bestModule.Value.percentageScore.Value.ToString();
 
-            Int16 yr3Average = averageScore(yr3);
-            yr3ModCountLabel.Text = yr3.Count.ToString();
-            yr3AvgScore.Text = yr3Average.ToString();
-            Module mod3 = bestModule(yr3);
-            if (mod3 != null)
-            {
-                yr3BestMod.Text = mod3.name;
-                yr3BestModScore.Text = mod3.averageScore().ToString();
-            }
-            else
-            {
-                yr3BestMod.Text = "No scores entered";
-                yr3BestModScore.Text = "No scores entered";
-            }
+            yr3ModCountLabel.Text = yr3.moduleCount.Value.ToString();
+            yr3AvgScoreLabel.Text = yr3.averageModulePercentage.Value.ToString();
+            yr3BestModLabel.Text = yr3.bestModule.Value.module.name;
+            yr3BestModScoreLabel.Text = yr3.bestModule.Value.percentageScore.Value.ToString();
 
             String classification;
-            if (yr2Average > 60 && yr3Average > 70)
+            if (yr2.averageModulePercentage > 60 && yr3.averageModulePercentage > 70)
             {
                 classification = "1st";
             }
-            else if (yr2Average > 50 && yr3Average > 60)
+            else if (yr2.averageModulePercentage > 50 && yr3.averageModulePercentage > 60)
             {
                 classification = "2:1";
             }
-            else if (yr2Average > 40 && yr3Average > 60)
+            else if (yr2.averageModulePercentage > 40 && yr3.averageModulePercentage > 50)
             {
                 classification = "2:2";
             }
-            else if (yr2Average > 40 && yr3Average > 40)
+            else if (yr2.averageModulePercentage > 40 && yr3.averageModulePercentage > 40)
             {
                 classification = "3rd";
             }
@@ -139,41 +120,6 @@ namespace Classify
             }
             degClassLabel.Text = classification;
 
-        }
-
-        private List<Module> modulesForYear(Int16 year)
-        {
-            List<Module> results = new List<Module>();
-            String stm = "SELECT * FROM Modules WHERE year = @yr";
-            SQLiteCommand cm = new SQLiteCommand(stm, DBSchema.connection());
-            cm.Parameters.Add(new SQLiteParameter("@yr", year));
-            SQLiteDataReader dr = cm.ExecuteReader();
-            while (dr.Read())
-            {
-                results.Add(new Module(dr));
-            }
-            return results;
-        }
-
-        private Int16 averageScore(List<Module> year)
-        {
-            Int16 i = 0;
-            Int16 total = 0;
-            foreach (Module mod in year)
-            {
-                total += mod.averageScore();
-                i++;
-            }
-            return Convert.ToInt16((i > 0) ? total / i : 0);
-        }
-
-        private Module bestModule(List<Module> year) {
-            Module best = null;
-            foreach (Module mod in year) 
-            {
-                if (best == null || mod.averageScore() > best.averageScore()) best = mod;
-            }
-            return best;
         }
 
         public void newModuleCreated(Module module)

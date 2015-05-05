@@ -42,161 +42,6 @@ namespace Classify
         }
     }
 
-    public class Module
-    {
-        const String tableName =        "Modules";
-        const String idColumn =         "module_id";
-        const String nameColumn =       "name";
-        const String codeColumn =       "code";
-        const String yearColumn =       "year";
-        const String creditsColumn =    "credits";
-
-        private Int16 _id;
-        public Int16 id
-        {
-            get { return _id; }
-            set { }
-        }
-
-        private String _name;
-        public String name
-        {
-            get { return _name; }
-            set
-            {
-                if (!value.Equals(_name))
-                {
-                    if (id > 0)
-                    {
-                        String stm = "UPDATE " + tableName + " SET " + nameColumn + " @name WHERE " + idColumn + " = @id";
-                        SQLiteCommand command = new SQLiteCommand(stm, DBSchema.connection());
-                        command.Parameters.Add(new SQLiteParameter("@id", id));
-                        command.Parameters.Add(new SQLiteParameter("@name", value));
-                    }
-                    _name = value;
-                }
-            }   
-        }
-        private String _code;
-        public String code
-        {
-            get { return _code; }
-            set
-            {
-                if (!value.Equals(_code))
-                {
-                    if (id > 0)
-                    {
-                        String stm = "UPDATE " + tableName + " SET " + codeColumn + " @code WHERE " + idColumn + " = @id";
-                        SQLiteCommand command = new SQLiteCommand(stm, DBSchema.connection());
-                        command.Parameters.Add(new SQLiteParameter("@id", id));
-                        command.Parameters.Add(new SQLiteParameter("@code", value));
-                    }
-                    _code = value;
-                }
-            }
-        }
-        private Int16 _year;
-        public Int16 year
-        {
-            get { return _year; }
-            set
-            {
-                if (value != _year)
-                {
-                    if (id > 0)
-                    {
-                        String stm = "UPDATE " + tableName + " SET " + yearColumn + " @year WHERE " + idColumn + " = @id";
-                        SQLiteCommand command = new SQLiteCommand(stm, DBSchema.connection());
-                        command.Parameters.Add(new SQLiteParameter("@id", id));
-                        command.Parameters.Add(new SQLiteParameter("@year", value));
-                    }
-                    _year = value;
-                }
-            }
-        }
-        private Int16 _credits;
-        public Int16 credits
-        {
-            get { return _credits; }
-            set
-            {
-                if (value != _credits)
-                {
-                    if (id > 0)
-                    {
-                        String stm = "UPDATE " + tableName + " SET " + creditsColumn + " @credits WHERE " + idColumn + " = @id";
-                        SQLiteCommand command = new SQLiteCommand(stm, DBSchema.connection());
-                        command.Parameters.Add(new SQLiteParameter("@id", id));
-                        command.Parameters.Add(new SQLiteParameter("@credits", value));
-                    }
-                    _credits = value;
-                }
-            }
-        }
-
-        public Module(SQLiteDataReader results) {
-            this.id = results.GetInt16(0);
-            this.name = results["name"] as String;
-            this.code = results["code"] as String;
-            this.year = results.GetInt16(3);
-        }
-
-        private Module(Int16 id, String name, String code, Int16 year, Int16 credits) {
-            this.id = id;
-            this.name = name;
-            this.code = code;
-            this.year = year;
-            this.credits = credits;
-        }
-
-        public static Module create(String name, String code, Int16 year, Int16 credits)
-        {
-            String stm = "INSERT INTO " + tableName + " (name, code, year, credits) VALUES(@name, @code, @year, @credits)";
-            SQLiteCommand insert = new SQLiteCommand(stm, DBSchema.connection());
-            insert.Parameters.Add(new SQLiteParameter("@name", name));
-            insert.Parameters.Add(new SQLiteParameter("@code", code));
-            insert.Parameters.Add(new SQLiteParameter("@year", year));
-            insert.Parameters.Add(new SQLiteParameter("@credits", credits));
-            insert.ExecuteNonQuery();
-            SQLiteCommand insertedID = new SQLiteCommand("SELECT LAST_INSERT_ROWID()", DBSchema.connection());
-            SQLiteDataReader reader = insertedID.ExecuteReader();
-            reader.Read();
-            return new Module(reader.GetInt16(0), name, code, year, credits);
-        }
-
-        public Int16 averageScore()
-        {
-            String stm = "SELECT result FROM Assessments WHERE module_id = @module";
-            SQLiteCommand cm = new SQLiteCommand(stm, DBSchema.connection());
-            cm.Parameters.Add(new SQLiteParameter("@module", id));
-            SQLiteDataReader dr = cm.ExecuteReader();
-            Int16 i = 0;
-            Int16 total = 0;
-            while (dr.Read())
-            {
-                Int16 result = dr.GetInt16(0);
-                total += result;
-                i++;
-            }
-            return Convert.ToInt16((i > 0) ? total / i : 0);
-        }
-
-        public static List<Module> modulesForYear(Int16 year)
-        {
-            List<Module> results = new List<Module>();
-            String stm = "SELECT * FROM Modules WHERE year = @yr";
-            SQLiteCommand cm = new SQLiteCommand(stm, DBSchema.connection());
-            cm.Parameters.Add(new SQLiteParameter("@yr", year));
-            SQLiteDataReader dr = cm.ExecuteReader();
-            while (dr.Read())
-            {
-                results.Add(new Module(dr));
-            }
-            return results;
-        }
-    }
-
     public class Assessment
     {
         const String tableName = "Assessments";
@@ -207,8 +52,8 @@ namespace Classify
         const String resultColumn = "result";
         const String moduleIdColumn = "module_id";
 
-        private Int16? _id;
-        public Int16? id
+        private long? _id;
+        public long? id
         {
             get { return _id; }
             set { }
@@ -233,8 +78,8 @@ namespace Classify
                 }
             }
         }
-        private Int16? _weight;
-        public Int16? weight
+        private Int32? _weight;
+        public Int32? weight
         {
             get { return _weight; }
             set
@@ -273,8 +118,8 @@ namespace Classify
             }
         }
 
-        private Int16? _result;
-        public Int16? result
+        private Int32? _result;
+        public Int32? result
         {
             get { return _result; }
             set
@@ -293,8 +138,8 @@ namespace Classify
             }
         }
 
-        private Int16? _moduleId;
-        public Int16? moduleId
+        private Int32? _moduleId;
+        public Int32? moduleId
         {
             get { return _moduleId; }
             set
@@ -315,14 +160,14 @@ namespace Classify
 
         public Assessment(SQLiteDataReader results)
         {
-            this.id = results[idColumn] as Int16?;
+            this.id = results.GetInt32(0);
             this.title = results[titleColumn] as String;
-            this.weight = results[weightColumn] as Int16?;
+            this.weight = results.GetInt32(2);
             this.type = results[typeColumn] as String;
-            this.result = results[resultColumn] as Int16?;
+            this.result = results.GetInt32(4);
         }
 
-        private Assessment(Int16 id, String title, Int16 weight, String type, Int16? result, Int16? moduleId)
+        private Assessment(Int32 id, String title, Int32 weight, String type, Int32? result, Int32? moduleId)
         {
             this.id = id;
             this.title = title;
@@ -332,7 +177,7 @@ namespace Classify
             this.moduleId = moduleId;
         }
 
-        public static Assessment create(String title, Int16 weight, String type, Int16 moduleId)
+        public static Assessment create(String title, Int32 weight, String type, Int32 moduleId)
         {
             String stm = "INSERT INTO " + tableName + " (title, weight, type, module_id) VALUES(@title, @weight, @type, @moduleId)";
             SQLiteCommand insert = new SQLiteCommand(stm, DBSchema.connection());
@@ -344,9 +189,9 @@ namespace Classify
             SQLiteCommand insertedID = new SQLiteCommand("SELECT LAST_INSERT_ROWID()", DBSchema.connection());
             SQLiteDataReader reader = insertedID.ExecuteReader();
             reader.Read();
-            return new Assessment(reader.GetInt16(0), title, weight, type, null, moduleId);
+            return new Assessment(reader.GetInt32(0), title, weight, type, null, moduleId);
         }
-        public static Assessment create(String title, Int16 weight, String type, Int16 result, Int16 moduleId)
+        public static Assessment create(String title, Int32 weight, String type, Int32 result, Int32 moduleId)
         {
             String stm = "INSERT INTO " + tableName + " (title, weight, type, result, module_id) VALUES(@title, @weight, @type, @result, @moduleId)";
             SQLiteCommand insert = new SQLiteCommand(stm, DBSchema.connection());
@@ -359,7 +204,17 @@ namespace Classify
             SQLiteCommand insertedID = new SQLiteCommand("SELECT LAST_INSERT_ROWID()", DBSchema.connection());
             SQLiteDataReader reader = insertedID.ExecuteReader();
             reader.Read();
-            return new Assessment(reader.GetInt16(0), title, weight, type, result, moduleId);
+            return new Assessment(reader.GetInt32(0), title, weight, type, result, moduleId);
+        }
+
+        public static List<Assessment> assessmentsFromDataReader(SQLiteDataReader dr)
+        {
+            List<Assessment> list = new List<Assessment>();
+            while (dr.Read())
+            {
+                list.Add(new Assessment(dr));
+            }
+            return list;
         }
     }
 }

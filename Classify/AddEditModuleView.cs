@@ -33,7 +33,7 @@ namespace Classify
             int.TryParse(selectedYearButton.Text, out year);
             int credits;
             int.TryParse(creditsTF.Text, out credits);
-            Module newModule = Module.create(name, code, Convert.ToInt16(year), Convert.ToInt16(credits));
+            Module newModule = Module.create(name, code, Convert.ToInt32(year), Convert.ToInt32(credits));
             if (del != null) 
             {
                 AddEditModuleViewDelegate delObject;

@@ -30,6 +30,21 @@
         {
             this.tabControl = new System.Windows.Forms.TabControl();
             this.homeTabPage = new System.Windows.Forms.TabPage();
+            this.secondBestCredScoreLabel = new System.Windows.Forms.Label();
+            this.firstBestCredScoreLabel = new System.Windows.Forms.Label();
+            this.degClassLabel = new System.Windows.Forms.Label();
+            this.yr3BestModScoreLabel = new System.Windows.Forms.Label();
+            this.yr3BestModLabel = new System.Windows.Forms.Label();
+            this.yr3AvgScoreLabel = new System.Windows.Forms.Label();
+            this.yr3ModCountLabel = new System.Windows.Forms.Label();
+            this.yr2BestModScoreLabel = new System.Windows.Forms.Label();
+            this.yr2BestModLabel = new System.Windows.Forms.Label();
+            this.yr2AvgScoreLabel = new System.Windows.Forms.Label();
+            this.yr2ModCountLabel = new System.Windows.Forms.Label();
+            this.yr1BestModScoreLabel = new System.Windows.Forms.Label();
+            this.yr1BestModLabel = new System.Windows.Forms.Label();
+            this.yr1AvgScoreLabel = new System.Windows.Forms.Label();
+            this.yr1ModCountLabel = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -54,21 +69,6 @@
             this.year2TabPage = new System.Windows.Forms.TabPage();
             this.year3TabPage = new System.Windows.Forms.TabPage();
             this.addModuleButton = new System.Windows.Forms.Button();
-            this.yr1ModCountLabel = new System.Windows.Forms.Label();
-            this.yr1AvgScore = new System.Windows.Forms.Label();
-            this.yr1BestMod = new System.Windows.Forms.Label();
-            this.yr1BestModScore = new System.Windows.Forms.Label();
-            this.yr2ModCountLabel = new System.Windows.Forms.Label();
-            this.yr2AvgScore = new System.Windows.Forms.Label();
-            this.yr2BestMod = new System.Windows.Forms.Label();
-            this.yr2BestModScore = new System.Windows.Forms.Label();
-            this.yr3ModCountLabel = new System.Windows.Forms.Label();
-            this.yr3AvgScore = new System.Windows.Forms.Label();
-            this.yr3BestMod = new System.Windows.Forms.Label();
-            this.yr3BestModScore = new System.Windows.Forms.Label();
-            this.degClassLabel = new System.Windows.Forms.Label();
-            this.firstBestCredScoreLabel = new System.Windows.Forms.Label();
-            this.secondBestCredScoreLabel = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.homeTabPage.SuspendLayout();
             this.SuspendLayout();
@@ -90,17 +90,17 @@
             this.homeTabPage.Controls.Add(this.secondBestCredScoreLabel);
             this.homeTabPage.Controls.Add(this.firstBestCredScoreLabel);
             this.homeTabPage.Controls.Add(this.degClassLabel);
-            this.homeTabPage.Controls.Add(this.yr3BestModScore);
-            this.homeTabPage.Controls.Add(this.yr3BestMod);
-            this.homeTabPage.Controls.Add(this.yr3AvgScore);
+            this.homeTabPage.Controls.Add(this.yr3BestModScoreLabel);
+            this.homeTabPage.Controls.Add(this.yr3BestModLabel);
+            this.homeTabPage.Controls.Add(this.yr3AvgScoreLabel);
             this.homeTabPage.Controls.Add(this.yr3ModCountLabel);
-            this.homeTabPage.Controls.Add(this.yr2BestModScore);
-            this.homeTabPage.Controls.Add(this.yr2BestMod);
-            this.homeTabPage.Controls.Add(this.yr2AvgScore);
+            this.homeTabPage.Controls.Add(this.yr2BestModScoreLabel);
+            this.homeTabPage.Controls.Add(this.yr2BestModLabel);
+            this.homeTabPage.Controls.Add(this.yr2AvgScoreLabel);
             this.homeTabPage.Controls.Add(this.yr2ModCountLabel);
-            this.homeTabPage.Controls.Add(this.yr1BestModScore);
-            this.homeTabPage.Controls.Add(this.yr1BestMod);
-            this.homeTabPage.Controls.Add(this.yr1AvgScore);
+            this.homeTabPage.Controls.Add(this.yr1BestModScoreLabel);
+            this.homeTabPage.Controls.Add(this.yr1BestModLabel);
+            this.homeTabPage.Controls.Add(this.yr1AvgScoreLabel);
             this.homeTabPage.Controls.Add(this.yr1ModCountLabel);
             this.homeTabPage.Controls.Add(this.label16);
             this.homeTabPage.Controls.Add(this.label17);
@@ -129,6 +129,141 @@
             this.homeTabPage.TabIndex = 0;
             this.homeTabPage.Text = "Home";
             this.homeTabPage.UseVisualStyleBackColor = true;
+            // 
+            // secondBestCredScoreLabel
+            // 
+            this.secondBestCredScoreLabel.AutoSize = true;
+            this.secondBestCredScoreLabel.Location = new System.Drawing.Point(391, 87);
+            this.secondBestCredScoreLabel.Name = "secondBestCredScoreLabel";
+            this.secondBestCredScoreLabel.Size = new System.Drawing.Size(41, 13);
+            this.secondBestCredScoreLabel.TabIndex = 42;
+            this.secondBestCredScoreLabel.Text = "label35";
+            // 
+            // firstBestCredScoreLabel
+            // 
+            this.firstBestCredScoreLabel.AutoSize = true;
+            this.firstBestCredScoreLabel.Location = new System.Drawing.Point(391, 74);
+            this.firstBestCredScoreLabel.Name = "firstBestCredScoreLabel";
+            this.firstBestCredScoreLabel.Size = new System.Drawing.Size(41, 13);
+            this.firstBestCredScoreLabel.TabIndex = 41;
+            this.firstBestCredScoreLabel.Text = "label34";
+            // 
+            // degClassLabel
+            // 
+            this.degClassLabel.AutoSize = true;
+            this.degClassLabel.Location = new System.Drawing.Point(391, 61);
+            this.degClassLabel.Name = "degClassLabel";
+            this.degClassLabel.Size = new System.Drawing.Size(41, 13);
+            this.degClassLabel.TabIndex = 40;
+            this.degClassLabel.Text = "label33";
+            // 
+            // yr3BestModScoreLabel
+            // 
+            this.yr3BestModScoreLabel.AutoSize = true;
+            this.yr3BestModScoreLabel.Location = new System.Drawing.Point(125, 281);
+            this.yr3BestModScoreLabel.Name = "yr3BestModScoreLabel";
+            this.yr3BestModScoreLabel.Size = new System.Drawing.Size(41, 13);
+            this.yr3BestModScoreLabel.TabIndex = 39;
+            this.yr3BestModScoreLabel.Text = "label32";
+            // 
+            // yr3BestModLabel
+            // 
+            this.yr3BestModLabel.AutoSize = true;
+            this.yr3BestModLabel.Location = new System.Drawing.Point(125, 268);
+            this.yr3BestModLabel.Name = "yr3BestModLabel";
+            this.yr3BestModLabel.Size = new System.Drawing.Size(41, 13);
+            this.yr3BestModLabel.TabIndex = 38;
+            this.yr3BestModLabel.Text = "label31";
+            // 
+            // yr3AvgScoreLabel
+            // 
+            this.yr3AvgScoreLabel.AutoSize = true;
+            this.yr3AvgScoreLabel.Location = new System.Drawing.Point(125, 255);
+            this.yr3AvgScoreLabel.Name = "yr3AvgScoreLabel";
+            this.yr3AvgScoreLabel.Size = new System.Drawing.Size(41, 13);
+            this.yr3AvgScoreLabel.TabIndex = 37;
+            this.yr3AvgScoreLabel.Text = "label30";
+            // 
+            // yr3ModCountLabel
+            // 
+            this.yr3ModCountLabel.AutoSize = true;
+            this.yr3ModCountLabel.Location = new System.Drawing.Point(125, 242);
+            this.yr3ModCountLabel.Name = "yr3ModCountLabel";
+            this.yr3ModCountLabel.Size = new System.Drawing.Size(41, 13);
+            this.yr3ModCountLabel.TabIndex = 36;
+            this.yr3ModCountLabel.Text = "label29";
+            // 
+            // yr2BestModScoreLabel
+            // 
+            this.yr2BestModScoreLabel.AutoSize = true;
+            this.yr2BestModScoreLabel.Location = new System.Drawing.Point(125, 189);
+            this.yr2BestModScoreLabel.Name = "yr2BestModScoreLabel";
+            this.yr2BestModScoreLabel.Size = new System.Drawing.Size(41, 13);
+            this.yr2BestModScoreLabel.TabIndex = 35;
+            this.yr2BestModScoreLabel.Text = "label28";
+            // 
+            // yr2BestModLabel
+            // 
+            this.yr2BestModLabel.AutoSize = true;
+            this.yr2BestModLabel.Location = new System.Drawing.Point(125, 176);
+            this.yr2BestModLabel.Name = "yr2BestModLabel";
+            this.yr2BestModLabel.Size = new System.Drawing.Size(41, 13);
+            this.yr2BestModLabel.TabIndex = 34;
+            this.yr2BestModLabel.Text = "label27";
+            // 
+            // yr2AvgScoreLabel
+            // 
+            this.yr2AvgScoreLabel.AutoSize = true;
+            this.yr2AvgScoreLabel.Location = new System.Drawing.Point(125, 163);
+            this.yr2AvgScoreLabel.Name = "yr2AvgScoreLabel";
+            this.yr2AvgScoreLabel.Size = new System.Drawing.Size(41, 13);
+            this.yr2AvgScoreLabel.TabIndex = 33;
+            this.yr2AvgScoreLabel.Text = "label26";
+            // 
+            // yr2ModCountLabel
+            // 
+            this.yr2ModCountLabel.AutoSize = true;
+            this.yr2ModCountLabel.Location = new System.Drawing.Point(125, 150);
+            this.yr2ModCountLabel.Name = "yr2ModCountLabel";
+            this.yr2ModCountLabel.Size = new System.Drawing.Size(41, 13);
+            this.yr2ModCountLabel.TabIndex = 32;
+            this.yr2ModCountLabel.Text = "label25";
+            // 
+            // yr1BestModScoreLabel
+            // 
+            this.yr1BestModScoreLabel.AutoSize = true;
+            this.yr1BestModScoreLabel.Location = new System.Drawing.Point(125, 100);
+            this.yr1BestModScoreLabel.Name = "yr1BestModScoreLabel";
+            this.yr1BestModScoreLabel.Size = new System.Drawing.Size(41, 13);
+            this.yr1BestModScoreLabel.TabIndex = 31;
+            this.yr1BestModScoreLabel.Text = "label24";
+            // 
+            // yr1BestModLabel
+            // 
+            this.yr1BestModLabel.AutoSize = true;
+            this.yr1BestModLabel.Location = new System.Drawing.Point(125, 87);
+            this.yr1BestModLabel.Name = "yr1BestModLabel";
+            this.yr1BestModLabel.Size = new System.Drawing.Size(41, 13);
+            this.yr1BestModLabel.TabIndex = 30;
+            this.yr1BestModLabel.Text = "label23";
+            // 
+            // yr1AvgScoreLabel
+            // 
+            this.yr1AvgScoreLabel.AutoSize = true;
+            this.yr1AvgScoreLabel.Location = new System.Drawing.Point(125, 74);
+            this.yr1AvgScoreLabel.Name = "yr1AvgScoreLabel";
+            this.yr1AvgScoreLabel.Size = new System.Drawing.Size(41, 13);
+            this.yr1AvgScoreLabel.TabIndex = 29;
+            this.yr1AvgScoreLabel.Text = "label22";
+            // 
+            // yr1ModCountLabel
+            // 
+            this.yr1ModCountLabel.AutoSize = true;
+            this.yr1ModCountLabel.Location = new System.Drawing.Point(125, 61);
+            this.yr1ModCountLabel.Name = "yr1ModCountLabel";
+            this.yr1ModCountLabel.Size = new System.Drawing.Size(41, 13);
+            this.yr1ModCountLabel.TabIndex = 28;
+            this.yr1ModCountLabel.Text = "label21";
             // 
             // label16
             // 
@@ -318,7 +453,7 @@
             this.year1TabPage.Location = new System.Drawing.Point(4, 22);
             this.year1TabPage.Name = "year1TabPage";
             this.year1TabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.year1TabPage.Size = new System.Drawing.Size(444, 308);
+            this.year1TabPage.Size = new System.Drawing.Size(533, 332);
             this.year1TabPage.TabIndex = 1;
             this.year1TabPage.Text = "Year 1";
             this.year1TabPage.UseVisualStyleBackColor = true;
@@ -328,7 +463,7 @@
             this.year2TabPage.Location = new System.Drawing.Point(4, 22);
             this.year2TabPage.Name = "year2TabPage";
             this.year2TabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.year2TabPage.Size = new System.Drawing.Size(444, 308);
+            this.year2TabPage.Size = new System.Drawing.Size(533, 332);
             this.year2TabPage.TabIndex = 2;
             this.year2TabPage.Text = "Year 2";
             this.year2TabPage.UseVisualStyleBackColor = true;
@@ -338,7 +473,7 @@
             this.year3TabPage.Location = new System.Drawing.Point(4, 22);
             this.year3TabPage.Name = "year3TabPage";
             this.year3TabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.year3TabPage.Size = new System.Drawing.Size(444, 308);
+            this.year3TabPage.Size = new System.Drawing.Size(533, 332);
             this.year3TabPage.TabIndex = 3;
             this.year3TabPage.Text = "Year 3";
             this.year3TabPage.UseVisualStyleBackColor = true;
@@ -352,141 +487,6 @@
             this.addModuleButton.Text = "Add Module";
             this.addModuleButton.UseVisualStyleBackColor = true;
             this.addModuleButton.Click += new System.EventHandler(this.addModuleButton_Click);
-            // 
-            // yr1ModCountLabel
-            // 
-            this.yr1ModCountLabel.AutoSize = true;
-            this.yr1ModCountLabel.Location = new System.Drawing.Point(125, 61);
-            this.yr1ModCountLabel.Name = "yr1ModCountLabel";
-            this.yr1ModCountLabel.Size = new System.Drawing.Size(41, 13);
-            this.yr1ModCountLabel.TabIndex = 28;
-            this.yr1ModCountLabel.Text = "label21";
-            // 
-            // yr1AvgScore
-            // 
-            this.yr1AvgScore.AutoSize = true;
-            this.yr1AvgScore.Location = new System.Drawing.Point(125, 74);
-            this.yr1AvgScore.Name = "yr1AvgScore";
-            this.yr1AvgScore.Size = new System.Drawing.Size(41, 13);
-            this.yr1AvgScore.TabIndex = 29;
-            this.yr1AvgScore.Text = "label22";
-            // 
-            // yr1BestMod
-            // 
-            this.yr1BestMod.AutoSize = true;
-            this.yr1BestMod.Location = new System.Drawing.Point(125, 87);
-            this.yr1BestMod.Name = "yr1BestMod";
-            this.yr1BestMod.Size = new System.Drawing.Size(41, 13);
-            this.yr1BestMod.TabIndex = 30;
-            this.yr1BestMod.Text = "label23";
-            // 
-            // yr1BestModScore
-            // 
-            this.yr1BestModScore.AutoSize = true;
-            this.yr1BestModScore.Location = new System.Drawing.Point(125, 100);
-            this.yr1BestModScore.Name = "yr1BestModScore";
-            this.yr1BestModScore.Size = new System.Drawing.Size(41, 13);
-            this.yr1BestModScore.TabIndex = 31;
-            this.yr1BestModScore.Text = "label24";
-            // 
-            // yr2ModCountLabel
-            // 
-            this.yr2ModCountLabel.AutoSize = true;
-            this.yr2ModCountLabel.Location = new System.Drawing.Point(125, 150);
-            this.yr2ModCountLabel.Name = "yr2ModCountLabel";
-            this.yr2ModCountLabel.Size = new System.Drawing.Size(41, 13);
-            this.yr2ModCountLabel.TabIndex = 32;
-            this.yr2ModCountLabel.Text = "label25";
-            // 
-            // yr2AvgScore
-            // 
-            this.yr2AvgScore.AutoSize = true;
-            this.yr2AvgScore.Location = new System.Drawing.Point(125, 163);
-            this.yr2AvgScore.Name = "yr2AvgScore";
-            this.yr2AvgScore.Size = new System.Drawing.Size(41, 13);
-            this.yr2AvgScore.TabIndex = 33;
-            this.yr2AvgScore.Text = "label26";
-            // 
-            // yr2BestMod
-            // 
-            this.yr2BestMod.AutoSize = true;
-            this.yr2BestMod.Location = new System.Drawing.Point(125, 176);
-            this.yr2BestMod.Name = "yr2BestMod";
-            this.yr2BestMod.Size = new System.Drawing.Size(41, 13);
-            this.yr2BestMod.TabIndex = 34;
-            this.yr2BestMod.Text = "label27";
-            // 
-            // yr2BestModScore
-            // 
-            this.yr2BestModScore.AutoSize = true;
-            this.yr2BestModScore.Location = new System.Drawing.Point(125, 189);
-            this.yr2BestModScore.Name = "yr2BestModScore";
-            this.yr2BestModScore.Size = new System.Drawing.Size(41, 13);
-            this.yr2BestModScore.TabIndex = 35;
-            this.yr2BestModScore.Text = "label28";
-            // 
-            // yr3ModCountLabel
-            // 
-            this.yr3ModCountLabel.AutoSize = true;
-            this.yr3ModCountLabel.Location = new System.Drawing.Point(125, 242);
-            this.yr3ModCountLabel.Name = "yr3ModCountLabel";
-            this.yr3ModCountLabel.Size = new System.Drawing.Size(41, 13);
-            this.yr3ModCountLabel.TabIndex = 36;
-            this.yr3ModCountLabel.Text = "label29";
-            // 
-            // yr3AvgScore
-            // 
-            this.yr3AvgScore.AutoSize = true;
-            this.yr3AvgScore.Location = new System.Drawing.Point(125, 255);
-            this.yr3AvgScore.Name = "yr3AvgScore";
-            this.yr3AvgScore.Size = new System.Drawing.Size(41, 13);
-            this.yr3AvgScore.TabIndex = 37;
-            this.yr3AvgScore.Text = "label30";
-            // 
-            // yr3BestMod
-            // 
-            this.yr3BestMod.AutoSize = true;
-            this.yr3BestMod.Location = new System.Drawing.Point(125, 268);
-            this.yr3BestMod.Name = "yr3BestMod";
-            this.yr3BestMod.Size = new System.Drawing.Size(41, 13);
-            this.yr3BestMod.TabIndex = 38;
-            this.yr3BestMod.Text = "label31";
-            // 
-            // yr3BestModScore
-            // 
-            this.yr3BestModScore.AutoSize = true;
-            this.yr3BestModScore.Location = new System.Drawing.Point(125, 281);
-            this.yr3BestModScore.Name = "yr3BestModScore";
-            this.yr3BestModScore.Size = new System.Drawing.Size(41, 13);
-            this.yr3BestModScore.TabIndex = 39;
-            this.yr3BestModScore.Text = "label32";
-            // 
-            // degClassLabel
-            // 
-            this.degClassLabel.AutoSize = true;
-            this.degClassLabel.Location = new System.Drawing.Point(391, 61);
-            this.degClassLabel.Name = "degClassLabel";
-            this.degClassLabel.Size = new System.Drawing.Size(41, 13);
-            this.degClassLabel.TabIndex = 40;
-            this.degClassLabel.Text = "label33";
-            // 
-            // firstBestCredScoreLabel
-            // 
-            this.firstBestCredScoreLabel.AutoSize = true;
-            this.firstBestCredScoreLabel.Location = new System.Drawing.Point(391, 74);
-            this.firstBestCredScoreLabel.Name = "firstBestCredScoreLabel";
-            this.firstBestCredScoreLabel.Size = new System.Drawing.Size(41, 13);
-            this.firstBestCredScoreLabel.TabIndex = 41;
-            this.firstBestCredScoreLabel.Text = "label34";
-            // 
-            // secondBestCredScoreLabel
-            // 
-            this.secondBestCredScoreLabel.AutoSize = true;
-            this.secondBestCredScoreLabel.Location = new System.Drawing.Point(391, 87);
-            this.secondBestCredScoreLabel.Name = "secondBestCredScoreLabel";
-            this.secondBestCredScoreLabel.Size = new System.Drawing.Size(41, 13);
-            this.secondBestCredScoreLabel.TabIndex = 42;
-            this.secondBestCredScoreLabel.Text = "label35";
             // 
             // ViewController
             // 
@@ -535,17 +535,17 @@
         private System.Windows.Forms.Label secondBestCredScoreLabel;
         private System.Windows.Forms.Label firstBestCredScoreLabel;
         private System.Windows.Forms.Label degClassLabel;
-        private System.Windows.Forms.Label yr3BestModScore;
-        private System.Windows.Forms.Label yr3BestMod;
-        private System.Windows.Forms.Label yr3AvgScore;
+        private System.Windows.Forms.Label yr3BestModScoreLabel;
+        private System.Windows.Forms.Label yr3BestModLabel;
+        private System.Windows.Forms.Label yr3AvgScoreLabel;
         private System.Windows.Forms.Label yr3ModCountLabel;
-        private System.Windows.Forms.Label yr2BestModScore;
-        private System.Windows.Forms.Label yr2BestMod;
-        private System.Windows.Forms.Label yr2AvgScore;
+        private System.Windows.Forms.Label yr2BestModScoreLabel;
+        private System.Windows.Forms.Label yr2BestModLabel;
+        private System.Windows.Forms.Label yr2AvgScoreLabel;
         private System.Windows.Forms.Label yr2ModCountLabel;
-        private System.Windows.Forms.Label yr1BestModScore;
-        private System.Windows.Forms.Label yr1BestMod;
-        private System.Windows.Forms.Label yr1AvgScore;
+        private System.Windows.Forms.Label yr1BestModScoreLabel;
+        private System.Windows.Forms.Label yr1BestModLabel;
+        private System.Windows.Forms.Label yr1AvgScoreLabel;
         private System.Windows.Forms.Label yr1ModCountLabel;
     }
 }

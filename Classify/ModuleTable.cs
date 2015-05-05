@@ -15,9 +15,9 @@ namespace Classify
     {
         private DataGridView table;
         private List<Module> modules;
-        private Int16 year;
+        private Int32 year;
         private ModuleDetailView detailView;
-        public ModuleTableView(Int16 year)
+        public ModuleTableView(Int32 year)
         {
             this.year = year;
             initialiseTable();

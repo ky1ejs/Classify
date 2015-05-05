@@ -34,7 +34,7 @@ namespace Classify
             int.TryParse(weightTF.Text, out weight);
             int result;
             int.TryParse(resultTF.Text, out result);
-            Assessment newAssessment = Assessment.create(title, Convert.ToInt16(weight), type, Convert.ToInt16(result), module.id);
+            Assessment newAssessment = Assessment.create(title, Convert.ToInt32(weight), type, Convert.ToInt32(result), module.id);
             if (del != null)
             {
                 AddEditAssessmentDelegate delObject;
