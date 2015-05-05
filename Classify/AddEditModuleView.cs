@@ -68,7 +68,7 @@ namespace Classify
             SQLiteDataReader dr = cm.ExecuteReader();
             dr.Read();
             Int64? totalCreditsForYear = dr["total_credits"] as Int64?;
-            if (totalCreditsForYear.Value + credits > 120)
+            if (totalCreditsForYear != null && totalCreditsForYear.Value + credits > 120)
             {
                 MessageBox.Show(String.Format("You may only have 120 per year. There are already {0} credits in this module. You have entered {1}.", totalCreditsForYear, credits), "Missing or invalid details");
                 return;
@@ -82,8 +82,15 @@ namespace Classify
                 if (delObject != null) delObject.newModuleCreated(newModule);
             }
             this.Parent.Controls.Remove(this);
+            clearTextFields();
         }
 
+        private void clearTextFields()
+        {
+            nameTF.Text = "";
+            codeTF.Text = "";
+            creditsTF.Text = "";
+        }
         public void setSelectedYearButton(Int64 year)
         {
             switch (year)
@@ -126,7 +133,8 @@ namespace Classify
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            this.Parent.Controls.Remove(this);          
+            this.Parent.Controls.Remove(this);
+            clearTextFields();
         }
 
     }
