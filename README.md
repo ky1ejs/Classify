@@ -1,8 +1,8 @@
-# What's going on witht his project?
+## What's going on with his project?
 
 At the moment I'm no longer working on this assignment/project, as I've handed it in and it doesn't hold my interest as much as other projects.
 
-# What is this?
+## What is this?
 
 Firstly, it's an assignment of mine for a year two degree modules, Object Orientated Programming II. 
 
