@@ -61,17 +61,25 @@ namespace Classify
                 MessageBox.Show(mbMessage, "Missing or invalid details");
                 return;
             }
-                
-            String stm = "SELECT SUM(credits) AS total_credits FROM Modules WHERE year = @year";
-            SQLiteCommand cm = new SQLiteCommand(stm, DBSchema.connection());  
-            cm.Parameters.Add(new SQLiteParameter("@year", year));
-            SQLiteDataReader dr = cm.ExecuteReader();
-            dr.Read();
-            Int64? totalCreditsForYear = dr["total_credits"] as Int64?;
-            if (totalCreditsForYear != null && totalCreditsForYear.Value + credits > 120)
+
+            if (credits > 120)
             {
-                MessageBox.Show(String.Format("You may only have 120 per year. There are already {0} credits in this module. You have entered {1}.", totalCreditsForYear, credits), "Missing or invalid details");
+                MessageBox.Show("A year can be no bigger than 120 credits, therefore a module can be no bigger than 120 credits.", "Missing or invalid details");
                 return;
+            }
+            else
+            {
+                String stm = "SELECT SUM(credits) AS total_credits FROM Modules WHERE year = @year";
+                SQLiteCommand cm = new SQLiteCommand(stm, DBSchema.connection());
+                cm.Parameters.Add(new SQLiteParameter("@year", year));
+                SQLiteDataReader dr = cm.ExecuteReader();
+                dr.Read();
+                Int64? totalCreditsForYear = dr["total_credits"] as Int64?;
+                if (totalCreditsForYear != null && totalCreditsForYear.Value + credits > 120)
+                {
+                    MessageBox.Show(String.Format("You may only have 120 per year. There are already {0} credits in this year. You have entered {1}.", totalCreditsForYear, credits), "Missing or invalid details");
+                    return;
+                }
             }
 
             Module newModule = Module.create(name, code, Convert.ToInt64(year), Convert.ToInt64(credits));

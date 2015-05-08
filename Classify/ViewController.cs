@@ -87,6 +87,35 @@ namespace Classify
 
         private void calcStats()
         {
+            yr1AvgScoreLabel.Text = "";
+            yr1BestModLabel.Text = "";
+            yr1BestModScoreLabel.Text = "";
+            yr1CreditsAttemtedLabel.Text = "";
+            yr1CreditsPredictedLabel.Text = "";
+            yr1CreditsScoredLabel.Text = "";
+            yr1ModCountLabel.Text = "";
+            yr1PredictedCreditScoreLabel.Text = "";
+            yr1PredictedYrPercentage.Text = "";
+
+            yr2AvgScoreLabel.Text = "";
+            yr2BestModLabel.Text = "";
+            yr2BestModScoreLabel.Text = "";
+            yr2CreditsAttemtedLabel.Text = "";
+            yr2CreditsPredictedLabel.Text = "";
+            yr2CreditsScoredLabel.Text = "";
+            yr2ModCountLabel.Text = "";
+            yr2PredictedCreditScoreLabel.Text = "";
+            yr2PredictedYrPercentage.Text = "";
+
+            yr3AvgScoreLabel.Text = "";
+            yr3BestModLabel.Text = "";
+            yr3BestModScoreLabel.Text = "";
+            yr3CreditsAttemtedLabel.Text = "";
+            yr3CreditsPredictedLabel.Text = "";
+            yr3CreditsScoredLabel.Text = "";
+            yr3ModCountLabel.Text = "";
+            yr3PredictedCreditScoreLabel.Text = "";
+            yr3PredictedYrPercentage.Text = "";
             if (!usePrediction)
             {
                 Module.YearScore yr1 = Module.scoreForYear(1);
@@ -100,6 +129,8 @@ namespace Classify
                     yr1BestModLabel.Text = yr1.bestModule.Value.module.name;
                     yr1BestModScoreLabel.Text = yr1.bestModule.Value.percentageScore.ToString();
                 }
+                yr1CreditsScoredLabel.Text = yr1.creditScore.ToString();
+                yr1CreditsAttemtedLabel.Text = yr1.creditsAttempted.ToString();
 
                 yr2ModCountLabel.Text = yr2.moduleCount.Value.ToString();
                 yr2AvgScoreLabel.Text = yr2.averageModulePercentage.ToString();
@@ -108,6 +139,8 @@ namespace Classify
                     yr2BestModLabel.Text = yr2.bestModule.Value.module.name;
                     yr2BestModScoreLabel.Text = yr2.bestModule.Value.percentageScore.ToString();
                 }
+                yr2CreditsScoredLabel.Text = yr2.creditScore.ToString();
+                yr2CreditsAttemtedLabel.Text = yr2.creditsAttempted.ToString();
 
                 yr3ModCountLabel.Text = yr3.moduleCount.Value.ToString();
                 yr3AvgScoreLabel.Text = yr3.averageModulePercentage.ToString();
@@ -116,6 +149,8 @@ namespace Classify
                     yr3BestModLabel.Text = yr3.bestModule.Value.module.name;
                     yr3BestModScoreLabel.Text = yr3.bestModule.Value.percentageScore.ToString();
                 }
+                yr3CreditsScoredLabel.Text = yr3.creditScore.ToString();
+                yr3CreditsAttemtedLabel.Text = yr3.creditsAttempted.ToString();
 
                 String classification;
                 if (yr2.averageModulePercentage > 60 && yr3.averageModulePercentage > 70)
@@ -153,6 +188,11 @@ namespace Classify
                     yr1BestModLabel.Text = yr1.bestModule.Value.actualScore.module.name;
                     yr1BestModScoreLabel.Text = yr1.bestModule.Value.actualScore.percentageScore.ToString();
                 }
+                yr1CreditsScoredLabel.Text = yr1.creditScore.ToString();
+                yr1CreditsAttemtedLabel.Text = yr1.creditsAttempted.ToString();
+                yr1PredictedCreditScoreLabel.Text = yr1.predictedCreditScore.ToString();
+                yr1CreditsPredictedLabel.Text = yr1.creditsPredicted.ToString();
+                yr1PredictedYrPercentage.Text = yr1.predictedPercentageScore.ToString();
 
                 yr2ModCountLabel.Text = yr2.moduleCount.Value.ToString();
                 yr2AvgScoreLabel.Text = yr2.averageModulePercentage.ToString();
@@ -161,6 +201,11 @@ namespace Classify
                     yr2BestModLabel.Text = yr2.bestModule.Value.actualScore.module.name;
                     yr2BestModScoreLabel.Text = yr2.bestModule.Value.actualScore.percentageScore.ToString();
                 }
+                yr2CreditsScoredLabel.Text = yr2.creditScore.ToString();
+                yr2CreditsAttemtedLabel.Text = yr2.creditsAttempted.ToString();
+                yr2PredictedCreditScoreLabel.Text = yr2.predictedCreditScore.ToString();
+                yr2CreditsPredictedLabel.Text = yr2.creditsPredicted.ToString();
+                yr2PredictedYrPercentage.Text = yr2.predictedPercentageScore.ToString();
 
                 yr3ModCountLabel.Text = yr3.moduleCount.Value.ToString();
                 yr3AvgScoreLabel.Text = yr3.averageModulePercentage.ToString();
@@ -169,6 +214,11 @@ namespace Classify
                     yr3BestModLabel.Text = yr3.bestModule.Value.actualScore.module.name;
                     yr3BestModScoreLabel.Text = yr3.bestModule.Value.actualScore.percentageScore.ToString();
                 }
+                yr3CreditsScoredLabel.Text = yr3.creditScore.ToString();
+                yr3CreditsAttemtedLabel.Text = yr3.creditsAttempted.ToString();
+                yr3PredictedCreditScoreLabel.Text = yr3.predictedCreditScore.ToString();
+                yr3CreditsPredictedLabel.Text = yr3.creditsPredicted.ToString();
+                yr3PredictedYrPercentage.Text = yr3.predictedPercentageScore.ToString();
 
                 String classification;
                 if (yr2.predictedCreditScore > 60 && yr3.predictedCreditScore > 70)

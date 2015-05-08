@@ -80,10 +80,10 @@ namespace Classify
                 }
             }
         }
-        private Int64 _credits;
+        private Int64? _credits;
         public Int64 credits
         {
-            get { return _credits; }
+            get { return _credits.Value; }
             set
             {
                 if (value != _credits)
@@ -104,6 +104,7 @@ namespace Classify
             this._id = results[idColumn] as Int64?;
             this._name = results[nameColumn] as String;
             this._code = results[codeColumn] as String;
+            this._credits = results[creditsColumn] as Int64?;
             this._year = results[yearColumn] as Int64?;
         }
 
@@ -292,8 +293,8 @@ namespace Classify
             if (totalCreditsScored != null)
             {
                 prediction.percentageScore = Convert.ToInt64((float)totalCreditsScored.Value / (120F / 100F));
-                prediction.predictedPercentageScore = Convert.ToInt64((float)prediction.percentageScore.Value + ((float)prediction.creditsPredicted.Value * ((float)prediction.averageModulePercentage / 100F)));
-                prediction.predictedCreditScore = Convert.ToInt64(120F * ((float)prediction.predictedPercentageScore / 100F));
+                prediction.predictedCreditScore = Convert.ToInt64((float)prediction.percentageScore.Value + ((float)prediction.creditsPredicted.Value * ((float)prediction.averageModulePercentage / 100F)));
+                prediction.predictedPercentageScore = Convert.ToInt64((float)prediction.predictedCreditScore.Value / (120F / 100F));
             }
             else
             {

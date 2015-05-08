@@ -30,6 +30,9 @@
         {
             this.tabControl = new System.Windows.Forms.TabControl();
             this.homeTabPage = new System.Windows.Forms.TabPage();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
             this.secondBestCredScoreLabel = new System.Windows.Forms.Label();
             this.firstBestCredScoreLabel = new System.Windows.Forms.Label();
             this.degClassLabel = new System.Windows.Forms.Label();
@@ -55,9 +58,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -72,6 +73,33 @@
             this.predictOnButton = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
             this.predictOffButton = new System.Windows.Forms.Button();
+            this.yr2CreditsScoredLabel = new System.Windows.Forms.Label();
+            this.yr1CreditsScoredLabel = new System.Windows.Forms.Label();
+            this.yr3CreditsScoredLabel = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.yr1CreditsAttemtedLabel = new System.Windows.Forms.Label();
+            this.yr1PredictedCreditScoreLabel = new System.Windows.Forms.Label();
+            this.yr1CreditsPredictedLabel = new System.Windows.Forms.Label();
+            this.yr2PredictedCreditScoreLabel = new System.Windows.Forms.Label();
+            this.yr2CreditsPredictedLabel = new System.Windows.Forms.Label();
+            this.yr2CreditsAttemtedLabel = new System.Windows.Forms.Label();
+            this.yr3CreditsPredictedLabel = new System.Windows.Forms.Label();
+            this.yr3PredictedCreditScoreLabel = new System.Windows.Forms.Label();
+            this.yr3CreditsAttemtedLabel = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.yr3PredictedYrPercentage = new System.Windows.Forms.Label();
+            this.yr2PredictedYrPercentage = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.yr1PredictedYrPercentage = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.homeTabPage.SuspendLayout();
             this.SuspendLayout();
@@ -85,11 +113,41 @@
             this.tabControl.Location = new System.Drawing.Point(3, 27);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(541, 358);
+            this.tabControl.Size = new System.Drawing.Size(575, 503);
             this.tabControl.TabIndex = 0;
             // 
             // homeTabPage
             // 
+            this.homeTabPage.Controls.Add(this.yr1PredictedYrPercentage);
+            this.homeTabPage.Controls.Add(this.label38);
+            this.homeTabPage.Controls.Add(this.yr2PredictedYrPercentage);
+            this.homeTabPage.Controls.Add(this.label36);
+            this.homeTabPage.Controls.Add(this.yr3PredictedYrPercentage);
+            this.homeTabPage.Controls.Add(this.label34);
+            this.homeTabPage.Controls.Add(this.yr3CreditsAttemtedLabel);
+            this.homeTabPage.Controls.Add(this.yr3PredictedCreditScoreLabel);
+            this.homeTabPage.Controls.Add(this.yr3CreditsPredictedLabel);
+            this.homeTabPage.Controls.Add(this.yr2CreditsAttemtedLabel);
+            this.homeTabPage.Controls.Add(this.yr2CreditsPredictedLabel);
+            this.homeTabPage.Controls.Add(this.yr2PredictedCreditScoreLabel);
+            this.homeTabPage.Controls.Add(this.yr1CreditsPredictedLabel);
+            this.homeTabPage.Controls.Add(this.yr1PredictedCreditScoreLabel);
+            this.homeTabPage.Controls.Add(this.yr1CreditsAttemtedLabel);
+            this.homeTabPage.Controls.Add(this.label31);
+            this.homeTabPage.Controls.Add(this.label32);
+            this.homeTabPage.Controls.Add(this.label33);
+            this.homeTabPage.Controls.Add(this.label28);
+            this.homeTabPage.Controls.Add(this.label29);
+            this.homeTabPage.Controls.Add(this.label30);
+            this.homeTabPage.Controls.Add(this.label27);
+            this.homeTabPage.Controls.Add(this.label26);
+            this.homeTabPage.Controls.Add(this.label25);
+            this.homeTabPage.Controls.Add(this.yr3CreditsScoredLabel);
+            this.homeTabPage.Controls.Add(this.yr1CreditsScoredLabel);
+            this.homeTabPage.Controls.Add(this.yr2CreditsScoredLabel);
+            this.homeTabPage.Controls.Add(this.label24);
+            this.homeTabPage.Controls.Add(this.label23);
+            this.homeTabPage.Controls.Add(this.label22);
             this.homeTabPage.Controls.Add(this.secondBestCredScoreLabel);
             this.homeTabPage.Controls.Add(this.firstBestCredScoreLabel);
             this.homeTabPage.Controls.Add(this.degClassLabel);
@@ -115,9 +173,7 @@
             this.homeTabPage.Controls.Add(this.label12);
             this.homeTabPage.Controls.Add(this.label14);
             this.homeTabPage.Controls.Add(this.label15);
-            this.homeTabPage.Controls.Add(this.label4);
             this.homeTabPage.Controls.Add(this.label5);
-            this.homeTabPage.Controls.Add(this.label6);
             this.homeTabPage.Controls.Add(this.label8);
             this.homeTabPage.Controls.Add(this.label3);
             this.homeTabPage.Controls.Add(this.label13);
@@ -128,150 +184,169 @@
             this.homeTabPage.Location = new System.Drawing.Point(4, 22);
             this.homeTabPage.Name = "homeTabPage";
             this.homeTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.homeTabPage.Size = new System.Drawing.Size(533, 332);
+            this.homeTabPage.Size = new System.Drawing.Size(567, 477);
             this.homeTabPage.TabIndex = 0;
-            this.homeTabPage.Text = "Home";
             this.homeTabPage.UseVisualStyleBackColor = true;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(107, 399);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(76, 13);
+            this.label24.TabIndex = 45;
+            this.label24.Text = "Credits Scored";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(107, 258);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(76, 13);
+            this.label23.TabIndex = 44;
+            this.label23.Text = "Credits Scored";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(107, 113);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(76, 13);
+            this.label22.TabIndex = 43;
+            this.label22.Text = "Credits Scored";
             // 
             // secondBestCredScoreLabel
             // 
             this.secondBestCredScoreLabel.AutoSize = true;
-            this.secondBestCredScoreLabel.Location = new System.Drawing.Point(391, 87);
+            this.secondBestCredScoreLabel.Location = new System.Drawing.Point(455, 86);
             this.secondBestCredScoreLabel.Name = "secondBestCredScoreLabel";
-            this.secondBestCredScoreLabel.Size = new System.Drawing.Size(41, 13);
+            this.secondBestCredScoreLabel.Size = new System.Drawing.Size(0, 13);
             this.secondBestCredScoreLabel.TabIndex = 42;
-            this.secondBestCredScoreLabel.Text = "label35";
             // 
             // firstBestCredScoreLabel
             // 
             this.firstBestCredScoreLabel.AutoSize = true;
-            this.firstBestCredScoreLabel.Location = new System.Drawing.Point(391, 74);
+            this.firstBestCredScoreLabel.Location = new System.Drawing.Point(455, 73);
             this.firstBestCredScoreLabel.Name = "firstBestCredScoreLabel";
-            this.firstBestCredScoreLabel.Size = new System.Drawing.Size(41, 13);
+            this.firstBestCredScoreLabel.Size = new System.Drawing.Size(0, 13);
             this.firstBestCredScoreLabel.TabIndex = 41;
-            this.firstBestCredScoreLabel.Text = "label34";
             // 
             // degClassLabel
             // 
             this.degClassLabel.AutoSize = true;
-            this.degClassLabel.Location = new System.Drawing.Point(391, 61);
+            this.degClassLabel.Location = new System.Drawing.Point(455, 60);
             this.degClassLabel.Name = "degClassLabel";
-            this.degClassLabel.Size = new System.Drawing.Size(41, 13);
+            this.degClassLabel.Size = new System.Drawing.Size(0, 13);
             this.degClassLabel.TabIndex = 40;
-            this.degClassLabel.Text = "label33";
             // 
             // yr3BestModScoreLabel
             // 
             this.yr3BestModScoreLabel.AutoSize = true;
-            this.yr3BestModScoreLabel.Location = new System.Drawing.Point(125, 281);
+            this.yr3BestModScoreLabel.Location = new System.Drawing.Point(189, 386);
             this.yr3BestModScoreLabel.Name = "yr3BestModScoreLabel";
-            this.yr3BestModScoreLabel.Size = new System.Drawing.Size(41, 13);
+            this.yr3BestModScoreLabel.Size = new System.Drawing.Size(17, 13);
             this.yr3BestModScoreLabel.TabIndex = 39;
-            this.yr3BestModScoreLabel.Text = "label32";
+            this.yr3BestModScoreLabel.Text = "//";
             // 
             // yr3BestModLabel
             // 
             this.yr3BestModLabel.AutoSize = true;
-            this.yr3BestModLabel.Location = new System.Drawing.Point(125, 268);
+            this.yr3BestModLabel.Location = new System.Drawing.Point(189, 373);
             this.yr3BestModLabel.Name = "yr3BestModLabel";
-            this.yr3BestModLabel.Size = new System.Drawing.Size(41, 13);
+            this.yr3BestModLabel.Size = new System.Drawing.Size(17, 13);
             this.yr3BestModLabel.TabIndex = 38;
-            this.yr3BestModLabel.Text = "label31";
+            this.yr3BestModLabel.Text = "//";
             // 
             // yr3AvgScoreLabel
             // 
             this.yr3AvgScoreLabel.AutoSize = true;
-            this.yr3AvgScoreLabel.Location = new System.Drawing.Point(125, 255);
+            this.yr3AvgScoreLabel.Location = new System.Drawing.Point(189, 360);
             this.yr3AvgScoreLabel.Name = "yr3AvgScoreLabel";
-            this.yr3AvgScoreLabel.Size = new System.Drawing.Size(41, 13);
+            this.yr3AvgScoreLabel.Size = new System.Drawing.Size(17, 13);
             this.yr3AvgScoreLabel.TabIndex = 37;
-            this.yr3AvgScoreLabel.Text = "label30";
+            this.yr3AvgScoreLabel.Text = "//";
             // 
             // yr3ModCountLabel
             // 
             this.yr3ModCountLabel.AutoSize = true;
-            this.yr3ModCountLabel.Location = new System.Drawing.Point(125, 242);
+            this.yr3ModCountLabel.Location = new System.Drawing.Point(189, 347);
             this.yr3ModCountLabel.Name = "yr3ModCountLabel";
-            this.yr3ModCountLabel.Size = new System.Drawing.Size(41, 13);
+            this.yr3ModCountLabel.Size = new System.Drawing.Size(17, 13);
             this.yr3ModCountLabel.TabIndex = 36;
-            this.yr3ModCountLabel.Text = "label29";
+            this.yr3ModCountLabel.Text = "//";
             // 
             // yr2BestModScoreLabel
             // 
             this.yr2BestModScoreLabel.AutoSize = true;
-            this.yr2BestModScoreLabel.Location = new System.Drawing.Point(125, 189);
+            this.yr2BestModScoreLabel.Location = new System.Drawing.Point(189, 245);
             this.yr2BestModScoreLabel.Name = "yr2BestModScoreLabel";
-            this.yr2BestModScoreLabel.Size = new System.Drawing.Size(41, 13);
+            this.yr2BestModScoreLabel.Size = new System.Drawing.Size(17, 13);
             this.yr2BestModScoreLabel.TabIndex = 35;
-            this.yr2BestModScoreLabel.Text = "label28";
+            this.yr2BestModScoreLabel.Text = "//";
             // 
             // yr2BestModLabel
             // 
             this.yr2BestModLabel.AutoSize = true;
-            this.yr2BestModLabel.Location = new System.Drawing.Point(125, 176);
+            this.yr2BestModLabel.Location = new System.Drawing.Point(189, 232);
             this.yr2BestModLabel.Name = "yr2BestModLabel";
-            this.yr2BestModLabel.Size = new System.Drawing.Size(41, 13);
+            this.yr2BestModLabel.Size = new System.Drawing.Size(17, 13);
             this.yr2BestModLabel.TabIndex = 34;
-            this.yr2BestModLabel.Text = "label27";
+            this.yr2BestModLabel.Text = "//";
             // 
             // yr2AvgScoreLabel
             // 
             this.yr2AvgScoreLabel.AutoSize = true;
-            this.yr2AvgScoreLabel.Location = new System.Drawing.Point(125, 163);
+            this.yr2AvgScoreLabel.Location = new System.Drawing.Point(189, 219);
             this.yr2AvgScoreLabel.Name = "yr2AvgScoreLabel";
-            this.yr2AvgScoreLabel.Size = new System.Drawing.Size(41, 13);
+            this.yr2AvgScoreLabel.Size = new System.Drawing.Size(17, 13);
             this.yr2AvgScoreLabel.TabIndex = 33;
-            this.yr2AvgScoreLabel.Text = "label26";
+            this.yr2AvgScoreLabel.Text = "//";
             // 
             // yr2ModCountLabel
             // 
             this.yr2ModCountLabel.AutoSize = true;
-            this.yr2ModCountLabel.Location = new System.Drawing.Point(125, 150);
+            this.yr2ModCountLabel.Location = new System.Drawing.Point(189, 206);
             this.yr2ModCountLabel.Name = "yr2ModCountLabel";
-            this.yr2ModCountLabel.Size = new System.Drawing.Size(41, 13);
+            this.yr2ModCountLabel.Size = new System.Drawing.Size(17, 13);
             this.yr2ModCountLabel.TabIndex = 32;
-            this.yr2ModCountLabel.Text = "label25";
+            this.yr2ModCountLabel.Text = "//";
             // 
             // yr1BestModScoreLabel
             // 
             this.yr1BestModScoreLabel.AutoSize = true;
-            this.yr1BestModScoreLabel.Location = new System.Drawing.Point(125, 100);
+            this.yr1BestModScoreLabel.Location = new System.Drawing.Point(189, 99);
             this.yr1BestModScoreLabel.Name = "yr1BestModScoreLabel";
-            this.yr1BestModScoreLabel.Size = new System.Drawing.Size(41, 13);
+            this.yr1BestModScoreLabel.Size = new System.Drawing.Size(0, 13);
             this.yr1BestModScoreLabel.TabIndex = 31;
-            this.yr1BestModScoreLabel.Text = "label24";
             // 
             // yr1BestModLabel
             // 
             this.yr1BestModLabel.AutoSize = true;
-            this.yr1BestModLabel.Location = new System.Drawing.Point(125, 87);
+            this.yr1BestModLabel.Location = new System.Drawing.Point(189, 86);
             this.yr1BestModLabel.Name = "yr1BestModLabel";
-            this.yr1BestModLabel.Size = new System.Drawing.Size(41, 13);
+            this.yr1BestModLabel.Size = new System.Drawing.Size(0, 13);
             this.yr1BestModLabel.TabIndex = 30;
-            this.yr1BestModLabel.Text = "label23";
             // 
             // yr1AvgScoreLabel
             // 
             this.yr1AvgScoreLabel.AutoSize = true;
-            this.yr1AvgScoreLabel.Location = new System.Drawing.Point(125, 74);
+            this.yr1AvgScoreLabel.Location = new System.Drawing.Point(189, 73);
             this.yr1AvgScoreLabel.Name = "yr1AvgScoreLabel";
-            this.yr1AvgScoreLabel.Size = new System.Drawing.Size(41, 13);
+            this.yr1AvgScoreLabel.Size = new System.Drawing.Size(0, 13);
             this.yr1AvgScoreLabel.TabIndex = 29;
-            this.yr1AvgScoreLabel.Text = "label22";
             // 
             // yr1ModCountLabel
             // 
             this.yr1ModCountLabel.AutoSize = true;
-            this.yr1ModCountLabel.Location = new System.Drawing.Point(125, 61);
+            this.yr1ModCountLabel.Location = new System.Drawing.Point(189, 60);
             this.yr1ModCountLabel.Name = "yr1ModCountLabel";
-            this.yr1ModCountLabel.Size = new System.Drawing.Size(41, 13);
+            this.yr1ModCountLabel.Size = new System.Drawing.Size(0, 13);
             this.yr1ModCountLabel.TabIndex = 28;
-            this.yr1ModCountLabel.Text = "label21";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(53, 268);
+            this.label16.Location = new System.Drawing.Point(117, 373);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(66, 13);
             this.label16.TabIndex = 27;
@@ -281,7 +356,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(3, 221);
+            this.label17.Location = new System.Drawing.Point(67, 326);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(53, 16);
             this.label17.TabIndex = 26;
@@ -290,7 +365,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(22, 281);
+            this.label18.Location = new System.Drawing.Point(86, 386);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(97, 13);
             this.label18.TabIndex = 25;
@@ -299,7 +374,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(3, 255);
+            this.label19.Location = new System.Drawing.Point(67, 360);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(116, 13);
             this.label19.TabIndex = 24;
@@ -308,7 +383,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(52, 242);
+            this.label20.Location = new System.Drawing.Point(116, 347);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(67, 13);
             this.label20.TabIndex = 23;
@@ -317,7 +392,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(53, 176);
+            this.label9.Location = new System.Drawing.Point(117, 232);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(66, 13);
             this.label9.TabIndex = 22;
@@ -327,7 +402,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(3, 129);
+            this.label10.Location = new System.Drawing.Point(67, 185);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(53, 16);
             this.label10.TabIndex = 21;
@@ -336,7 +411,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(22, 189);
+            this.label12.Location = new System.Drawing.Point(86, 245);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(97, 13);
             this.label12.TabIndex = 20;
@@ -345,7 +420,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(3, 163);
+            this.label14.Location = new System.Drawing.Point(67, 219);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(116, 13);
             this.label14.TabIndex = 19;
@@ -354,42 +429,24 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(52, 150);
+            this.label15.Location = new System.Drawing.Point(116, 206);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(67, 13);
             this.label15.TabIndex = 18;
             this.label15.Text = "No. Modules";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(280, 87);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(105, 13);
-            this.label4.TabIndex = 17;
-            this.label4.Text = "2nd Best 115 Credits";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(202, 100);
+            this.label5.Location = new System.Drawing.Point(266, 99);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(0, 13);
             this.label5.TabIndex = 16;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(285, 74);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(100, 13);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "1st Best 115 credits";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(269, 61);
+            this.label8.Location = new System.Drawing.Point(333, 60);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(116, 13);
             this.label8.TabIndex = 14;
@@ -399,7 +456,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(238, 40);
+            this.label3.Location = new System.Drawing.Point(302, 39);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 16);
             this.label3.TabIndex = 13;
@@ -408,7 +465,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(53, 87);
+            this.label13.Location = new System.Drawing.Point(117, 86);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(66, 13);
             this.label13.TabIndex = 12;
@@ -418,7 +475,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(3, 40);
+            this.label11.Location = new System.Drawing.Point(67, 39);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(53, 16);
             this.label11.TabIndex = 10;
@@ -427,7 +484,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(22, 100);
+            this.label7.Location = new System.Drawing.Point(86, 99);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(97, 13);
             this.label7.TabIndex = 6;
@@ -436,7 +493,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 74);
+            this.label2.Location = new System.Drawing.Point(67, 73);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(116, 13);
             this.label2.TabIndex = 1;
@@ -445,7 +502,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(52, 61);
+            this.label1.Location = new System.Drawing.Point(116, 60);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 13);
             this.label1.TabIndex = 0;
@@ -521,11 +578,250 @@
             this.predictOffButton.UseVisualStyleBackColor = true;
             this.predictOffButton.Click += new System.EventHandler(this.predictOffButton_Click);
             // 
+            // yr2CreditsScoredLabel
+            // 
+            this.yr2CreditsScoredLabel.AutoSize = true;
+            this.yr2CreditsScoredLabel.Location = new System.Drawing.Point(189, 257);
+            this.yr2CreditsScoredLabel.Name = "yr2CreditsScoredLabel";
+            this.yr2CreditsScoredLabel.Size = new System.Drawing.Size(17, 13);
+            this.yr2CreditsScoredLabel.TabIndex = 46;
+            this.yr2CreditsScoredLabel.Text = "//";
+            // 
+            // yr1CreditsScoredLabel
+            // 
+            this.yr1CreditsScoredLabel.AutoSize = true;
+            this.yr1CreditsScoredLabel.Location = new System.Drawing.Point(189, 113);
+            this.yr1CreditsScoredLabel.Name = "yr1CreditsScoredLabel";
+            this.yr1CreditsScoredLabel.Size = new System.Drawing.Size(0, 13);
+            this.yr1CreditsScoredLabel.TabIndex = 47;
+            // 
+            // yr3CreditsScoredLabel
+            // 
+            this.yr3CreditsScoredLabel.AutoSize = true;
+            this.yr3CreditsScoredLabel.Location = new System.Drawing.Point(189, 399);
+            this.yr3CreditsScoredLabel.Name = "yr3CreditsScoredLabel";
+            this.yr3CreditsScoredLabel.Size = new System.Drawing.Size(17, 13);
+            this.yr3CreditsScoredLabel.TabIndex = 48;
+            this.yr3CreditsScoredLabel.Text = "//";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(93, 412);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(90, 13);
+            this.label25.TabIndex = 49;
+            this.label25.Text = "Credits Attempted";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(67, 425);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(116, 13);
+            this.label26.TabIndex = 50;
+            this.label26.Text = "Preditcted Credit Score";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(76, 438);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(107, 13);
+            this.label27.TabIndex = 51;
+            this.label27.Text = "No. Predicted Credits";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(76, 155);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(107, 13);
+            this.label28.TabIndex = 54;
+            this.label28.Text = "No. Predicted Credits";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(67, 141);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(116, 13);
+            this.label29.TabIndex = 53;
+            this.label29.Text = "Preditcted Credit Score";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(93, 127);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(90, 13);
+            this.label30.TabIndex = 52;
+            this.label30.Text = "Credits Attempted";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(76, 296);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(107, 13);
+            this.label31.TabIndex = 57;
+            this.label31.Text = "No. Predicted Credits";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(67, 283);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(116, 13);
+            this.label32.TabIndex = 56;
+            this.label32.Text = "Preditcted Credit Score";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(93, 270);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(90, 13);
+            this.label33.TabIndex = 55;
+            this.label33.Text = "Credits Attempted";
+            // 
+            // yr1CreditsAttemtedLabel
+            // 
+            this.yr1CreditsAttemtedLabel.AutoSize = true;
+            this.yr1CreditsAttemtedLabel.Location = new System.Drawing.Point(189, 127);
+            this.yr1CreditsAttemtedLabel.Name = "yr1CreditsAttemtedLabel";
+            this.yr1CreditsAttemtedLabel.Size = new System.Drawing.Size(0, 13);
+            this.yr1CreditsAttemtedLabel.TabIndex = 58;
+            // 
+            // yr1PredictedCreditScoreLabel
+            // 
+            this.yr1PredictedCreditScoreLabel.AutoSize = true;
+            this.yr1PredictedCreditScoreLabel.Location = new System.Drawing.Point(189, 141);
+            this.yr1PredictedCreditScoreLabel.Name = "yr1PredictedCreditScoreLabel";
+            this.yr1PredictedCreditScoreLabel.Size = new System.Drawing.Size(0, 13);
+            this.yr1PredictedCreditScoreLabel.TabIndex = 59;
+            // 
+            // yr1CreditsPredictedLabel
+            // 
+            this.yr1CreditsPredictedLabel.AutoSize = true;
+            this.yr1CreditsPredictedLabel.Location = new System.Drawing.Point(189, 155);
+            this.yr1CreditsPredictedLabel.Name = "yr1CreditsPredictedLabel";
+            this.yr1CreditsPredictedLabel.Size = new System.Drawing.Size(0, 13);
+            this.yr1CreditsPredictedLabel.TabIndex = 60;
+            // 
+            // yr2PredictedCreditScoreLabel
+            // 
+            this.yr2PredictedCreditScoreLabel.AutoSize = true;
+            this.yr2PredictedCreditScoreLabel.Location = new System.Drawing.Point(189, 283);
+            this.yr2PredictedCreditScoreLabel.Name = "yr2PredictedCreditScoreLabel";
+            this.yr2PredictedCreditScoreLabel.Size = new System.Drawing.Size(17, 13);
+            this.yr2PredictedCreditScoreLabel.TabIndex = 61;
+            this.yr2PredictedCreditScoreLabel.Text = "//";
+            // 
+            // yr2CreditsPredictedLabel
+            // 
+            this.yr2CreditsPredictedLabel.AutoSize = true;
+            this.yr2CreditsPredictedLabel.Location = new System.Drawing.Point(189, 296);
+            this.yr2CreditsPredictedLabel.Name = "yr2CreditsPredictedLabel";
+            this.yr2CreditsPredictedLabel.Size = new System.Drawing.Size(17, 13);
+            this.yr2CreditsPredictedLabel.TabIndex = 62;
+            this.yr2CreditsPredictedLabel.Text = "//";
+            // 
+            // yr2CreditsAttemtedLabel
+            // 
+            this.yr2CreditsAttemtedLabel.AutoSize = true;
+            this.yr2CreditsAttemtedLabel.Location = new System.Drawing.Point(189, 270);
+            this.yr2CreditsAttemtedLabel.Name = "yr2CreditsAttemtedLabel";
+            this.yr2CreditsAttemtedLabel.Size = new System.Drawing.Size(17, 13);
+            this.yr2CreditsAttemtedLabel.TabIndex = 63;
+            this.yr2CreditsAttemtedLabel.Text = "//";
+            // 
+            // yr3CreditsPredictedLabel
+            // 
+            this.yr3CreditsPredictedLabel.AutoSize = true;
+            this.yr3CreditsPredictedLabel.Location = new System.Drawing.Point(189, 438);
+            this.yr3CreditsPredictedLabel.Name = "yr3CreditsPredictedLabel";
+            this.yr3CreditsPredictedLabel.Size = new System.Drawing.Size(17, 13);
+            this.yr3CreditsPredictedLabel.TabIndex = 64;
+            this.yr3CreditsPredictedLabel.Text = "//";
+            // 
+            // yr3PredictedCreditScoreLabel
+            // 
+            this.yr3PredictedCreditScoreLabel.AutoSize = true;
+            this.yr3PredictedCreditScoreLabel.Location = new System.Drawing.Point(189, 425);
+            this.yr3PredictedCreditScoreLabel.Name = "yr3PredictedCreditScoreLabel";
+            this.yr3PredictedCreditScoreLabel.Size = new System.Drawing.Size(17, 13);
+            this.yr3PredictedCreditScoreLabel.TabIndex = 65;
+            this.yr3PredictedCreditScoreLabel.Text = "//";
+            // 
+            // yr3CreditsAttemtedLabel
+            // 
+            this.yr3CreditsAttemtedLabel.AutoSize = true;
+            this.yr3CreditsAttemtedLabel.Location = new System.Drawing.Point(189, 412);
+            this.yr3CreditsAttemtedLabel.Name = "yr3CreditsAttemtedLabel";
+            this.yr3CreditsAttemtedLabel.Size = new System.Drawing.Size(17, 13);
+            this.yr3CreditsAttemtedLabel.TabIndex = 66;
+            this.yr3CreditsAttemtedLabel.Text = "//";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(51, 451);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(132, 13);
+            this.label34.TabIndex = 67;
+            this.label34.Text = "Predicted year percentage";
+            // 
+            // yr3PredictedYrPercentage
+            // 
+            this.yr3PredictedYrPercentage.AutoSize = true;
+            this.yr3PredictedYrPercentage.Location = new System.Drawing.Point(189, 451);
+            this.yr3PredictedYrPercentage.Name = "yr3PredictedYrPercentage";
+            this.yr3PredictedYrPercentage.Size = new System.Drawing.Size(17, 13);
+            this.yr3PredictedYrPercentage.TabIndex = 68;
+            this.yr3PredictedYrPercentage.Text = "//";
+            // 
+            // yr2PredictedYrPercentage
+            // 
+            this.yr2PredictedYrPercentage.AutoSize = true;
+            this.yr2PredictedYrPercentage.Location = new System.Drawing.Point(189, 309);
+            this.yr2PredictedYrPercentage.Name = "yr2PredictedYrPercentage";
+            this.yr2PredictedYrPercentage.Size = new System.Drawing.Size(17, 13);
+            this.yr2PredictedYrPercentage.TabIndex = 70;
+            this.yr2PredictedYrPercentage.Text = "//";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(51, 309);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(132, 13);
+            this.label36.TabIndex = 69;
+            this.label36.Text = "Predicted year percentage";
+            // 
+            // yr1PredictedYrPercentage
+            // 
+            this.yr1PredictedYrPercentage.AutoSize = true;
+            this.yr1PredictedYrPercentage.Location = new System.Drawing.Point(189, 168);
+            this.yr1PredictedYrPercentage.Name = "yr1PredictedYrPercentage";
+            this.yr1PredictedYrPercentage.Size = new System.Drawing.Size(17, 13);
+            this.yr1PredictedYrPercentage.TabIndex = 72;
+            this.yr1PredictedYrPercentage.Text = "//";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(51, 168);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(132, 13);
+            this.label38.TabIndex = 71;
+            this.label38.Text = "Predicted year percentage";
+            // 
             // ViewController
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(541, 382);
+            this.ClientSize = new System.Drawing.Size(575, 526);
             this.Controls.Add(this.predictOffButton);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.predictOnButton);
@@ -563,9 +859,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label13;
@@ -587,6 +881,36 @@
         private System.Windows.Forms.Button predictOnButton;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Button predictOffButton;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label yr3CreditsScoredLabel;
+        private System.Windows.Forms.Label yr1CreditsScoredLabel;
+        private System.Windows.Forms.Label yr2CreditsScoredLabel;
+        private System.Windows.Forms.Label yr3CreditsAttemtedLabel;
+        private System.Windows.Forms.Label yr3PredictedCreditScoreLabel;
+        private System.Windows.Forms.Label yr3CreditsPredictedLabel;
+        private System.Windows.Forms.Label yr2CreditsAttemtedLabel;
+        private System.Windows.Forms.Label yr2CreditsPredictedLabel;
+        private System.Windows.Forms.Label yr2PredictedCreditScoreLabel;
+        private System.Windows.Forms.Label yr1CreditsPredictedLabel;
+        private System.Windows.Forms.Label yr1PredictedCreditScoreLabel;
+        private System.Windows.Forms.Label yr1CreditsAttemtedLabel;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label yr1PredictedYrPercentage;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label yr2PredictedYrPercentage;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label yr3PredictedYrPercentage;
+        private System.Windows.Forms.Label label34;
     }
 }
 
