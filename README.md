@@ -1,4 +1,4 @@
-## What's going on with his project?
+## What's going on with this project?
 
 At the moment, I'm no longer working on this assignment/project, as I've handed it in and it doesn't hold my interest as much as other projects that I have.
 
